@@ -79,6 +79,15 @@ optional = true
 pytest = ">=7.2.1"
 pytest-runner = "*"
 
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+pip = "*"
+bump2version = "*"
+flake8 = "*"
+coverage = "*"
+
 [tool.poetry.group.docs]
 optional = true
 
