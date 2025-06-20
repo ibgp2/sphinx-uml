@@ -60,7 +60,14 @@ local_scheme = "no-local-version"
 preview = true
 
 [tool.poetry]
+name = "sphinx-uml"
 version = "0.0.18"
+description = "sphinx-uml is sphinx extension to generate a UML diagram from python"
+authors = [	
+	"Marc-Olivier Buob <marc-olivier.buob@nokia-bell-labs.com>",
+]
+license = "BSD-3 license"
+readme = "README.md"  
 packages = [
 	{include = "sphinx_uml", from = "src"},
 ]
