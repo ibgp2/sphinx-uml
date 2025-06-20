@@ -72,6 +72,13 @@ packages = [
 	{include = "sphinx_uml", from = "src"},
 ]
 
+[tool.poetry.dependencies]
+python = ">=3.9"
+docutils = "*"
+pylint = "*"
+sphinx = "*"
+
+
 [tool.poetry.group.test]
 optional = true
 
