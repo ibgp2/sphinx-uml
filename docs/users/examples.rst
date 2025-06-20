@@ -12,12 +12,12 @@ RST code for sphinx-pyreverse class diagram
 
 To generate a `pyreverse` classes diagram in you
 rst output simply put the following, replacing
-the `sphinx_pyreverse` with the module you want
+the `sphinx_uml` with the module you want
 the diagram for.
 
 .. code-block:: rst
 
-  .. uml:: sphinx_pyreverse
+  .. uml:: sphinx_uml
      :classes:
 
 The following output also uses pyreverse
@@ -37,7 +37,7 @@ sphinx-pyreverse classes output:
 With the above rst spec and `conf.py` config you
 get:
 
-.. uml:: sphinx_pyreverse
+.. uml:: sphinx_uml
    :classes:
 
 
@@ -52,7 +52,7 @@ simply use the following RST:
 
 .. code-block:: rst
 
-  .. uml:: sphinx_pyreverse
+  .. uml:: sphinx_uml
      :packages:
 
 The following output also uses pyreverse
@@ -71,6 +71,6 @@ sphinx-pyreverse packages output:
 
 With the above rst spec and `conf.py` config you get:
 
-.. uml:: sphinx_pyreverse
+.. uml:: sphinx_uml
    :packages:
 

@@ -1,1 +1,4 @@
-/uml_images/
+modules.rst
+sphinx_uml.*.rst
+sphinx_uml.rst
+_build
