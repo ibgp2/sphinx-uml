@@ -1,0 +1,8 @@
+# autodoc
+example.*.rst
+index.rst
+example.rst
+modules.rst
+
+# build directory
+_build

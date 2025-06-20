@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "example"
+version = "0.0.1"
+description = "My example"
+# TODO: add the other contributors
+authors = [
+    "Author1",
+    "Author2",
+]
+license = "My license"
+readme = "README.md"
+packages = [
+    {include = "example", from = "src"},
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<4.0"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+# poetry install --with docs
+pydata-sphinx-theme = "*"
+Sphinx = ">=8.2"
+sphinx_copybutton = "*"
+sphinx_mdinclude = ">=0.5.3"
+docutils = ">=0.21.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

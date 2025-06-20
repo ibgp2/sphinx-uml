@@ -69,4 +69,9 @@ setup(
     long_description=read("README.rst"),
     packages=["sphinx_pyreverse"],
     url="https://github.com/alendit/sphinx-pyreverse",
+    entry_points={
+        "console_scripts": [
+            "pyreverse2 = sphinx_pyreverse.cli:run_pyreverse2",
+        ]
+    }
 )
