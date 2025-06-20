@@ -415,7 +415,13 @@ class UMLGenerateDirective(SphinxDirective):
         dwriter.printer_class = DotPrinter
         dwriter.api_doc = SphinxHtmlProxy()
         dwriter.api_doc.sphinx_html_dir = runner.config.sphinx_html_dir
-        assert len(diadefs) == 1, len(diadefs)
+        #assert len(diadefs) == 1, len(diadefs)
+        if isinstance(diadefs, list) and len(diadefs) > 1:
+            for diagram in diadefs:
+                print(diagram)
+            print("picking the first diagram")
+            diadefs = diadefs[0]
+
         dwriter.write(diadefs)
 
         # TODO why my node is only considered as a "graphviz" node?

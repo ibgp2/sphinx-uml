@@ -14,7 +14,7 @@ and runs the following operations:
 
 - parsing the arguments from the CLI;
 - initializing the configuration needed by the :py:meth:`pyreverse.run` method;
-- calling the :py:`pylint.pyreverse.main.Run.run` method with the remaining
+- calling the :py:meth:`pylint.pyreverse.main.Run.run` method with the remaining
   arguments;
 - exiting the program using the :py:func:`sys.exit` function!
 
@@ -157,7 +157,7 @@ class Run:
         Args:
             args (list[str]): The remaining arguments, that are not yet
                 handled by the constructor, typically, the class or module
-                being pyreversed. *Example:* ``['example.module.submodule.c1']`.
+                being pyreversed. *Example:* ``['example.module.submodule.c1']``.
         """
         dwriter = writer.DiagramWriter(self.config)
         # << Writer hijacking

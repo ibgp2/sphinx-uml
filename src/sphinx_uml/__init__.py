@@ -1,8 +1,9 @@
-"""
-Created on Oct 1, 2012
+__author__ = "Marc-Olivier Buob"
+__maintainer__ = "Marc-Olivier Buob"
+__email__ = "marc-olivier.buob@nokia-bell-labs.com"
+__license__ = "GPL-3"
+__version__ = "0.0.18"
 
-@author: alendit
-"""
 
 import os
 
