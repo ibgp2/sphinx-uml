@@ -1,9 +1,4 @@
 #!/usr/bin/env python
-"""
-Created on Oct 2, 2012
-
-@author: alendit
-"""
 import os
 
 from setuptools import setup
@@ -18,33 +13,30 @@ def read(fname):
 
 
 setup(
-    name="sphinx-pyreverse",
+    name="sphinx-uml",
     version="0.0.18",
-    author="Dimitri Vorona",
-    author_email="vorona@in.tum.de",
+    author="Marc-Olivier Buob",
+    author_email="marc-olivier.buob@nokia-bell-labs.com",
     classifiers=[
-        "Development Status :: 2 - Pre-Alpha",
-        "Intended Audience :: Information Technology",
-        "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
-        "Operating System :: Microsoft :: Windows",
-        "Operating System :: POSIX",
-        "Programming Language :: Python",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.4",
-        "Topic :: Utilities",
+      "Development Status :: 2 - Pre-Alpha",
+      "Intended Audience :: Developers",
+      "License :: OSI Approved :: Python Software Foundation License",
+      "Natural Language :: English",
+      "Programming Language :: Python :: 3 :: Only",
+      "Programming Language :: Python :: 3.9",
+      "Programming Language :: Python :: 3.10",
+      "Programming Language :: Python :: 3.11",
+      "Programming Language :: Python :: 3.12",
+      "Programming Language :: Python :: 3.13",
+      "Topic :: Documentation :: Sphinx",
     ],
     description=(
-        "A simple sphinx extension to generate " "UML diagrams with pyreverse"
+        "A simple sphinx extension to generate UML diagrams with pyreverse. "
     ),
     extras_require={
         "deploy": [
             # deps for deploying
             "twine",
-        ],
-        "pil": [
-            # because of the vaious ways of getting PIL we reccomend, but do
-            # not enfore, pillow
-            "pillow",
         ],
         "tests": [
             "black==24.10.0",
@@ -66,12 +58,12 @@ setup(
     ],
     keywords="sphinx extension uml pyreverse",
     license="GPLv3",
-    long_description=read("README.rst"),
-    packages=["sphinx_pyreverse"],
-    url="https://github.com/alendit/sphinx-pyreverse",
+    long_description=read("README.md"),
+    packages=["sphinx_uml"],
+    url="https://github.com/ibgp2/sphinx-pyreverse",
     entry_points={
         "console_scripts": [
-            "pyreverse2 = sphinx_pyreverse.cli:run_pyreverse2",
+            "pyreverse2 = sphinx_uml.cli:run_pyreverse2",
         ]
     }
 )

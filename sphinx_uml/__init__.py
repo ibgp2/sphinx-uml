@@ -35,7 +35,7 @@ def setup(app):
     app.add_config_value("sphinx_pyreverse_colorized", default=None, rebuild="env")
 
     # Allow override of the directive, defaulting to 'uml'
-    directive_name_to_use = os.environ.get("SPHINX_PYREVERSE_DIRECTIVE", "uml")
+    directive_name_to_use = os.environ.get("SPHINX_UML_DIRECTIVE", "uml")
     app.add_directive(directive_name_to_use, UMLGenerateDirective)
 
     return {"parallel_read_safe": True}

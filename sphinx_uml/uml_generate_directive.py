@@ -465,6 +465,8 @@ class UMLGenerateDirective(SphinxDirective):
 
 
 # /usr/lib/python3/dist-packages/sphinx/ext/inheritance_diagram.py
+# Must be moved to __init__.py
+
 #from sphinx.application import Sphinx
 #from sphinx.util.typing import ExtensionMetadata
 #from sphinx.ext.inheritance_diagram import (

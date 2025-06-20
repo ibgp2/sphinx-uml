@@ -40,7 +40,7 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx_copybutton",  # https://pypi.org/project/sphinx_copybutton
     "sphinx_mdinclude",  # https://pypi.org/project/sphinx_mdinclude/
-    "sphinx_pyreverse"
+    "sphinx_uml"
 ]
 
 # See https://github.com/JamesALeedham/Sphinx-Autosummary-Recursion/blob/master/docs/conf.py
