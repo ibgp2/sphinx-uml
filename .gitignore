@@ -1,15 +1,18 @@
-*.dot
-*.pyc
-.project
-.pydevproject
-.settings
-.pypirc
-build
-dist
-*.egg-info
-*.swp
-.ropeproject
-coverage/
-*env/
-dist_backups/
+# Packaging
+build/
 dist/
+.coverage
+coverage.xml
+.tox/
+__pycache__
+*.egg-info
+
+# Python
+*.pyc
+*.ipynb
+
+# Editor
+*.swp
+
+# Data
+*.dot
