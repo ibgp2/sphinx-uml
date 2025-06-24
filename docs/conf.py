@@ -100,6 +100,19 @@ pygments_style = "sphinx"
 # A list of ignored prefixes for module index sorting.
 # modindex_common_prefix = []
 
+# Graphviz stuff (used by inheritance_diagram)
+graphviz_output_format = "svg"
+bgcolor = "transparent"
+fgcolor = "red"  # Note that night mode will change this to white
+inheritance_graph_attrs = {
+    "rankdir": "BT",
+    "fontcolor": fgcolor,
+    "bgcolor": bgcolor,
+}
+inheritance_node_attrs = inheritance_edge_attrs = {
+    "color": fgcolor,
+    "fontcolor": fgcolor,
+}
 
 # -- Options for HTML output ---------------------------------------------------
 
