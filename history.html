@@ -420,22 +420,47 @@
 <ul class="simple">
 <li><p><strong>Packaging:</strong></p>
 <ul>
-<li><p>Migrated to <span class="raw-html-md"><a href="https://python-poetry.org/"><code class="docutils literal"><span class="pre">poetry</span></code></a></span>.</p></li>
-<li><p>Renamed extension to <code class="docutils literal notranslate"><span class="pre">sphinx_uml</span></code>.</p></li>
-<li><p>Reorganized the project.</p></li>
-<li><p>Added <code class="docutils literal notranslate"><span class="pre">bumpversion</span></code> configuration.</p></li>
+<li><p>Renamed the extension to <code class="docutils literal notranslate"><span class="pre">sphinx_uml</span></code>.</p></li>
+<li><p>Migrated to <span class="raw-html-md"><a href="https://python-poetry.org/"><code class="docutils literal"><span class="pre">poetry</span></code></a></span>. See <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.</p></li>
+<li><p>Added <span class="raw-html-md"><a href="https://manpages.debian.org/testing/bumpversion/bumpversion.1.en.html"><code class="docutils literal"><span class="pre">bumpversion</span></code></a></span> configuration. See <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code>.</p></li>
 <li><p>Removed obsolete files.</p></li>
 </ul>
 </li>
 <li><p><strong>CI:</strong></p>
 <ul>
-<li><p>Added <a class="reference external" href="https://github.com/features/actions">Github actions</a> (test, doc, publish)</p></li>
+<li><p>Added <a class="reference external" href="https://github.com/features/actions">Github actions</a> (test, doc, publish). See <code class="docutils literal notranslate"><span class="pre">.github/</span></code>.</p></li>
+<li><p>Added <a class="reference external" href="https://readthedocs.io/">ReadTheDoc</a> hook.</p></li>
 </ul>
 </li>
 <li><p><strong>Documentation:</strong></p>
 <ul>
-<li><p>Migrated to <code class="docutils literal notranslate"><span class="pre">`pydata</span></code> theme &lt;<a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">https://pydata-sphinx-theme.readthedocs.io/en/stable/</a>&gt;`_.</p></li>
-<li><p>Added <a class="reference external" href="https://readthedocs.io/">ReadTheDoc</a> hook.</p></li>
+<li><p>Migrated to <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">pydata theme</a>. See <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>.</p></li>
+<li><p>Updated the documentation.</p></li>
+<li><p>Enabled automatic API documentation.</p></li>
+<li><p>Added a toy example project. See <code class="docutils literal notranslate"><span class="pre">example/</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id1">
+<h2>0.2.0<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Packaging</strong>:</p>
+<ul>
+<li><p>Reorganized sources.</p></li>
+<li><p>Added license (BSD-3).</p></li>
+<li><p>Added badges. See <code class="docutils literal notranslate"><span class="pre">README.md</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>CI</strong>:</p>
+<ul>
+<li><p>Updated <code class="docutils literal notranslate"><span class="pre">publish_on_pypi.yml</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Documentation:</strong></p>
+<ul>
+<li><p>Improved sphinx templates (see <code class="docutils literal notranslate"><span class="pre">example/docs/_templates</span></code>)</p></li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">inheritance-diagram</span></code> option to customize <code class="docutils literal notranslate"><span class="pre">uml-sphinx</span></code> diagram display.</p></li>
 </ul>
 </li>
 </ul>
@@ -482,6 +507,7 @@
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-draft">0.0.18 (2025-06-20): First draft</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-release">0.1.0 (2025-06-20): First release</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">0.2.0</a></li>
 </ul>
   </nav></div>
 
@@ -519,7 +545,7 @@
 
   <p class="copyright">
     
-      © Copyright GPL-3.
+      © Copyright BSD-3.
       <br/>
     
   </p>

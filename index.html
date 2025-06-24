@@ -381,21 +381,62 @@
 </section>
 <section id="sphinx-uml">
 <h1>Sphinx-uml<a class="headerlink" href="#sphinx-uml" title="Link to this heading">#</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> is a simple sphinx extension to generate a UML diagram from python
-modules, inspired from
-<span class="raw-html-md"><a href="https://github.com/sphinx-pyreverse/sphinx-pyreverse/"><code class="docutils literal"><span class="pre">sphinx-pyreverse</span></code></a></span>.</p>
-<p>Contrary to <span class="raw-html-md"><a href="https://github.com/sphinx-pyreverse/sphinx-pyreverse/"><code class="docutils literal"><span class="pre">sphinx-pyreverse</span></code></a></span>,
-<code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> does not call the <code class="docutils literal notranslate"><span class="pre">pyreverse</span></code> command and outputs SVG UML diagrams.
-This makes the UML diagram responsive to light/black Sphinx themes.</p>
-<p>If the path of the HTML documentation is supplied, <code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> outputs
-navigable UML diagrams: one can click the class / attribute / method names
-to browse the corresponding documentation page.</p>
-<p>There are two way to make those diagrams:</p>
+<a class="reference external image-reference" href="https://pypi.python.org/pypi/sphinx-uml/"><img alt="PyPI" src="https://img.shields.io/pypi/v/sphinx-uml.svg" />
+</a>
+<a class="reference external image-reference" href="https://test.pypi.org/project/sphinx-uml/"><img alt="test.PyPI" src="https://img.shields.io/pypi/v/sphinx-uml.svg" />
+</a>
+<a class="reference external image-reference" href="https://github.com/ibgp2/sphinx-uml/actions/workflows/build.yml"><img alt="Build" src="https://github.com/ibgp2/sphinx-uml/workflows/build/badge.svg" />
+</a>
+<a class="reference external image-reference" href="https://github.com/ibgp2/sphinx-uml/actions/workflows/docs.yml"><img alt="Documentation" src="https://github.com/ibgp2/sphinx-uml/workflows/docs/badge.svg" />
+</a>
+<a class="reference external image-reference" href="https://sphinx-uml.readthedocs.io/en/"><img alt="ReadTheDocs" src="https://readthedocs.org/projects/sphinx-uml/badge/?version=latest" />
+</a>
+<p><code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> is a Sphinx extension that generates <a class="reference external" href="https://en.wikipedia.org/wiki/Unified_Modeling_Language">UML diagrams</a> from python
+modules, just like <span class="raw-html-md"><a href="https://github.com/sphinx-pyreverse/sphinx-pyreverse/"><code class="docutils literal"><span class="pre">sphinx-pyreverse</span></code></a></span>.</p>
+<p>Compared to <span class="raw-html-md"><a href="https://github.com/sphinx-pyreverse/sphinx-pyreverse/"><code class="docutils literal"><span class="pre">sphinx-pyreverse</span></code></a></span>,
+<code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> outputs enriched <a class="reference external" href="https://graphviz.org/doc/info/lang.html">dot</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/SVG">SVG</a> UML diagrams.</p>
 <ul class="simple">
-<li><p>using the <code class="docutils literal notranslate"><span class="pre">uml</span></code> Sphinx directive (in a documentation page)</p></li>
-<li><p>using the <code class="docutils literal notranslate"><span class="pre">pyreverse2</span></code> command, shipped with this package, and which extends
-the original <code class="docutils literal notranslate"><span class="pre">pyreverse</span></code> command.</p></li>
+<li><p>responsive to light/black Sphinx themes (as <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">pydata</a>);</p></li>
+<li><p>if the HTML address is known, the class/attribute/method names can be clicked to browse the corresponding documentation page;</p></li>
 </ul>
+<section id="sphinx">
+<h2>Sphinx<a class="headerlink" href="#sphinx" title="Link to this heading">#</a></h2>
+<p>UML diagrams can be obtained by using the <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">uml</span></code> directive.</p>
+<p><em>Example:</em></p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">uml</span><span class="p">::</span> example.module.b1
+    <span class="nc">:caption:</span> UML diagram of <span class="s">``example.module.b1``</span>
+    <span class="nc">:classes:</span>
+    <span class="nc">:packages:</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">example/</span></code> toy example show how to integrate this directive using
+<span class="raw-html-md"><a href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html"><code class="docutils literal"><span class="pre">sphinx.ext.autodoc</span></code></a></span> and
+<span class="raw-html-md"><a href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html"><code class="docutils literal"><span class="pre">sphinx.ext.autosummary</span></code></a></span>.</p>
+</section>
+<section id="pyreverse2">
+<h2>pyreverse2<a class="headerlink" href="#pyreverse2" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">pyreverse2</span></code> behaves like the original <code class="docutils literal notranslate"><span class="pre">pyreverse</span></code> command with two main differences:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--ouput</span></code>: <code class="docutils literal notranslate"><span class="pre">svg</span></code> and <code class="docutils literal notranslate"><span class="pre">dot</span></code> are the only supported formats;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--sphinx-html-dir</span></code> can be used to indicate where is the HTML root directory.</p></li>
+</ul>
+<p><em>Example:</em> In the example below, we assume that:</p>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">example</span></code> package has been installed</p></li>
+<li><p>the documentation has been built in $HOME/git/sphinx-pyreverse/example/docs/_build/html/</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate the UML diagram for each value of x</span>
+<span class="k">for</span><span class="w"> </span>x<span class="w"> </span><span class="k">in</span><span class="w"> </span>example<span class="w"> </span>example.module<span class="w"> </span>example.module.submodule<span class="w"> </span>example.module.submodule.c1
+<span class="k">do</span>
+<span class="w">     </span>pyreverse2<span class="w"> </span><span class="se">\</span>
+<span class="w">             </span>--sphinx-html-dir<span class="w"> </span><span class="nv">$HOME</span>/git/sphinx-pyreverse/example/docs/_build/html/<span class="w"> </span><span class="se">\</span>
+<span class="w">             </span>--output<span class="w"> </span>svg<span class="w"> </span><span class="se">\</span>
+<span class="w">             </span>--project<span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="se">\</span>
+<span class="w">             </span><span class="nv">$x</span>
+<span class="w">     </span><span class="c1"># The previous command outputs {classes,packages}_$o.svg</span>
+<span class="k">done</span>
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Preliminaries</a><ul>
@@ -443,10 +484,12 @@ the original <code class="docutils literal notranslate"><span class="pre">pyreve
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="history.html#first-draft">0.0.18 (2025-06-20): First draft</a></li>
 <li class="toctree-l2"><a class="reference internal" href="history.html#first-release">0.1.0 (2025-06-20): First release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id1">0.2.0</a></li>
 </ul>
 </li>
 </ul>
 </div>
+</section>
 </section>
 
 
@@ -488,7 +531,11 @@ the original <code class="docutils literal notranslate"><span class="pre">pyreve
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Documentation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx-uml">Sphinx-uml</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx-uml">Sphinx-uml</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx">Sphinx</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyreverse2">pyreverse2</a></li>
+</ul>
+</li>
 </ul>
 
   </nav></div>
@@ -527,7 +574,7 @@ the original <code class="docutils literal notranslate"><span class="pre">pyreve
 
   <p class="copyright">
     
-      © Copyright GPL-3.
+      © Copyright BSD-3.
       <br/>
     
   </p>
