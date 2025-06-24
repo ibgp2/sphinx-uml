@@ -3,6 +3,11 @@
 {%- for option in options %}
    :{{ option }}:
 {%- endfor %}
+
+.. uml:: {{ modname }}
+    :packages:
+    :classes:
+    :caption: UML diagram of ``{{ modname }}``
 {%- endmacro %}
 
 {%- macro toctree(docnames) -%}
