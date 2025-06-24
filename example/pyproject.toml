@@ -26,6 +26,7 @@ Sphinx = ">=8.2"
 sphinx_copybutton = "*"
 sphinx_mdinclude = ">=0.5.3"
 docutils = ">=0.21.2"
+pylint = "*"
 
 [build-system]
 requires = ["poetry-core"]
