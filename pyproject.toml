@@ -45,7 +45,7 @@ Changelog = "https://github.com/ibgp2/sphinx-pyreverse/HISTORY.md"
 Repository = "https://github.com/ibgp2/sphinx-pyreverse"
 
 [project.scripts]
-pyreverse2 = "sphinx_uml.cli:run_pyreverse2"
+pyreverse2 = "sphinx_uml.pyreverse.cli:run_pyreverse2"
 
 [tool.hatch]
 version.source = "vcs"
