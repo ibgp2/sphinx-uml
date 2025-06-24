@@ -37,8 +37,7 @@ class DotPrinter(_DotPrinter):
         if not properties.label:
             return ""
 
-        # <<
-        # << Attribute and method display
+        # Attribute and method display
         # HTML tags supported by Graphviz:
         # https://graphviz.org/doc/info/shapes.html#html
         # NB: A node can embed at most one <table> tag.
@@ -83,7 +82,6 @@ class DotPrinter(_DotPrinter):
                 text="<b>Attributes:</b>"
             )
         for attr in attrs:
-            print(f"{attr=}")
             attr_url = proxy.url(attr)
             attr_label = attr.replace("|", r"\|")
             label += vstack(
@@ -128,19 +126,15 @@ class DotPrinter(_DotPrinter):
         type_: NodeType,
         properties: NodeProperties | None = None,
     ) -> None:
-        # << Infer current module name and class name.
         # This must be carried by the node name, which impose to run: pyverse -m y ...
         proxy = SphinxHtmlProxy()
         i = name.rfind(".")
-        print(f"emit_node({name=})")
         if i > 0:
             proxy.module_name = name[: i]
             proxy.class_name = name[i + 1:]
         else:
             proxy.module_name = name
             proxy.class_name = None
-        print(f"  {i=} {proxy.module_name=} {proxy.class_name}")
-        # >>
 
         if properties is None:
             properties = NodeProperties(label=name)
@@ -152,13 +146,13 @@ class DotPrinter(_DotPrinter):
         fontcolor_part = (
             f', fontcolor="{properties.fontcolor}"' if properties.fontcolor else ""
         )
-        # << Node display
+
         # URLs in Graphviz: https://graphviz.org/docs/attrs/URL/
         # https://talk.observablehq.com/t/hyperlink-in-graphviz-node-doesnt-work/4775/2
+        # Example:
         # dot`digraph { b [URL="https://google.com" target="_top"]; a -> b; }`
         url = proxy.url()
         self.emit(
             f'"{name}" [color="{color}"{fontcolor_part}{label_part}, shape="{shape}", '
             f'style="{style}", URL="{url}"];'
         )
-        # >>
