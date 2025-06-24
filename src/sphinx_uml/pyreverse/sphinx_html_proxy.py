@@ -1,5 +1,5 @@
 from pathlib import Path
-from .singleton import Singleton
+from ..singleton import Singleton
 
 
 class SphinxHtmlProxy(metaclass=Singleton):
