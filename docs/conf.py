@@ -118,6 +118,11 @@ copybutton_prompt_is_regexp = True
 # Thus, it also impacts sphinx.ext.inheritance_diagram and sphinx_uml.
 graphviz_output_format = "svg"
 
+# sphinx-uml switches
+uml_colorized = True  # colour the graphs
+uml_all_ancestors = True  # give more Sphinx context
+uml_all_associated = True
+
 # -- Options for HTML output ---------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for

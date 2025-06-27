@@ -3,14 +3,23 @@ from pathlib import Path
 from docutils import nodes
 from docutils.parsers.rst import directives
 from pylint.pyreverse.main import writer
+from pylint.pyreverse.diagrams import (
+    ClassDiagram,
+    PackageDiagram,
+)
 from sphinx.ext.graphviz import (
     figure_wrapper,
     graphviz,
 )
 from sphinx.util.docutils import SphinxDirective
-from sphinx.util.typing import ExtensionMetadata, OptionSpec
-from typing import TYPE_CHECKING
-from typing import ClassVar
+from sphinx.util.typing import (
+    ExtensionMetadata,
+    OptionSpec,
+)
+from typing import (
+    TYPE_CHECKING,
+    ClassVar,
+)
 
 
 class UmlNode(graphviz):
@@ -36,15 +45,16 @@ class UmlNode(graphviz):
         node["code"] = dotcode
         node["options"] = {"graphviz_dot": "dot"}
 
-        # We rely on graph inheritance CSS class to be responsive
-        # to dark/light theme
-        node["classes"] = ["uml"]
+        # We rely on sphinx.ext.inheritance_diagram CSS classes
+        # to be responsive to dark/light themes.
+        # TODO: improve this!
+        node["classes"] = ["inheritance"]
         return node
 
     @classmethod
     def from_pyreverse(
         cls,
-        diadefs: list,
+        diagram: ClassDiagram | PackageDiagram,
         config: argparse.Namespace
     ) -> "UmlNode":
         """
@@ -52,8 +62,10 @@ class UmlNode(graphviz):
         obtained from pyreverse.
 
         Args:
-            dotcode (str): A Graphviz dot string.
-                *Example:* ``digraph G {0 -> 1}``
+            diagram (ClassDiagram | PackageDiagram): The diagram
+                that must be exported.
+            config (argparse.Namespace): The configuration
+                obtained from the Sphinx configuration file.
 
         Returns:
             The resulting :py:class:`UmlNode` instance.
@@ -61,11 +73,11 @@ class UmlNode(graphviz):
         from .pyreverse import DotPrinter, SphinxHtmlProxy
         dwriter = writer.DiagramWriter(config)
         dwriter.printer_class = DotPrinter
-        # TODO Buidl xrefs as in
-        # /usr/lib/python3/dist-packages/sphinx/ext/inheritance_diagram.py
+        # TODO Build xrefs as in
+        # /usr/lib/python3/dist-packages/sphinx/ext/inheritance_diagram.py?
         dwriter.api_doc = SphinxHtmlProxy()
         dwriter.api_doc.sphinx_html_dir = config.sphinx_html_dir
-        dwriter.write(diadefs)
+        dwriter.write([diagram])
         dotcode = "\n".join(dwriter.printer.lines)
         return cls.from_dot(dotcode)
 
@@ -87,60 +99,33 @@ class UMLGenerateDirective(SphinxDirective):
         "packages": directives.flag,
     }
 
-    # a list of modules which have been parsed by pyreverse
-    # generated_modules = []
-
-#     def _validate(self):
-#         """Validates that the RST parameters are valid"""
-#         valid_flags = {":classes:", ":packages:"}
-#         unknown_arguments = set(self.arguments[1:]) - valid_flags
-#         if unknown_arguments:
-#             raise ValueError(
-#                 (
-#                     f"invalid flags encountered: {unknown_arguments}. "
-#                     f"Must be one of {valid_flags}"
-#                 )
-#             )
-
-    def _build_command(self, module_name, config):  # noqa: C901 func too-complex
-        cmd = [
-            "pyreverse",
-            "--output",
-            # <<
-            # config.sphinx_pyreverse_output,
-            # --
-            "svg",
-            # >>
-            "--project",
-            module_name,
-        ]
-        if config.sphinx_pyreverse_filter_mode:
-            assert config.sphinx_pyreverse_filter_mode
-            cmd.extend(("--filter-mode", config.sphinx_pyreverse_filter_mode))
-        if config.sphinx_pyreverse_class:
-            cmd.extend(("--class", config.sphinx_pyreverse_class))
-        if config.sphinx_pyreverse_show_ancestors:
-            cmd.extend(("--show-ancestors", config.sphinx_pyreverse_show_ancestors))
-        if config.sphinx_pyreverse_all_ancestors:
-            cmd.append("--all-ancestors")
-        if config.sphinx_pyreverse_show_associated:
-            cmd.extend(("--show-associated", config.sphinx_pyreverse_show_associated))
-        if config.sphinx_pyreverse_all_associated:
-            cmd.append("--all-associated")
-        if config.sphinx_pyreverse_show_builtin:
-            cmd.append("--show-builtin")
-        if config.sphinx_pyreverse_module_names:
-            cmd.extend(("--module-names", config.sphinx_pyreverse_module_names))
-        if config.sphinx_pyreverse_only_classnames:
-            cmd.append("--only-classnames")
-        if config.sphinx_pyreverse_ignore:
-            cmd.extend(("--ignore", config.sphinx_pyreverse_ignore))
-        if config.sphinx_pyreverse_colorized:
-            cmd.append("--colorized")
-
-        # finally append the module to generate the uml for
-        cmd.append(module_name)
-        return cmd
+    def _build_args(self) -> list[str]:
+        args = list()
+        config = self.config
+        if config.uml_filter_mode:
+            assert config.uml_filter_mode
+            args.extend(("--filter-mode", config.uml_filter_mode))
+        if config.uml_class:
+            args.extend(("--class", config.uml_class))
+        if config.uml_show_ancestors:
+            args.extend(("--show-ancestors", config.uml_show_ancestors))
+        if config.uml_all_ancestors:
+            args.append("--all-ancestors")
+        if config.uml_show_associated:
+            args.extend(("--show-associated", config.uml_show_associated))
+        if config.uml_all_associated:
+            args.append("--all-associated")
+        if config.uml_show_builtin:
+            args.append("--show-builtin")
+        if config.uml_module_names:
+            args.extend(("--module-names", config.uml_module_names))
+        if config.uml_only_classnames:
+            args.append("--only-classnames")
+        if config.uml_ignore:
+            args.extend(("--ignore", config.uml_ignore))
+        if config.uml_colorized:
+            args.append("--colorized")
+        return args
 
     def html_root_dir(self) -> str:
         """
@@ -176,37 +161,34 @@ class UMLGenerateDirective(SphinxDirective):
         To test this extension, as a developer:
 
         .. shell
+
             make install-sphinx-custom clean-doc docs
 
         To test this `pyreverse2`, called by this extension:
 
         .. shell
-            pyreverse2 \
-               --output svg \
-               --project example.a \
-               --sphinx-html-dir docs/_html \
-               --output-directory docs/ \
-               -m y \
+
+            pyreverse2 \\
+               --output svg \\
+               --project example.a \\
+               --sphinx-html-dir docs/_html \\
+               --output-directory docs/ \\
+               -m y \\
                example.a
         """
+        # ..uml: module_name
         module_name = self.arguments[0]
-        # self._validate()
 
-        #page_name = Path(doc.current_source)  # Prefixed by src.
-        #module_name = page_name.with_suffix("").name
+        # :classes:, :packages:, :caption:, :parts:
+        with_classes = "classes" in self.options
+        with_packages = "packages" in self.options
+        caption = self.options.get("caption")
+        parts = self.options.get("parts", 0)
 
-        output_format = "dot"
-        pyprocess_args = [
-#            "--output", output_format,           # -o
+        pyprocess_args = self._build_args() + [
             "--sphinx-html-dir", self.html_root_dir(),
-#            "--output-directory", str(uml_dir),
-#            "--verbose",
-#            "--project", module_name,            # -p
-            # "--module-names", "y",             # -m
             module_name
         ]
-        pyprocess_shell = "pyreverse2 " + " ".join(pyprocess_args)
-        print(pyprocess_shell)
 
         # make install-sphinx-custom clean-doc docs
         from .pyreverse import Run, ParsePyreverseArgs
@@ -214,12 +196,20 @@ class UMLGenerateDirective(SphinxDirective):
         parser = ParsePyreverseArgs(pyprocess_args)
         runner = Run(parser.config)
         diadefs = runner.diadefs(parser.remaining_args)
-        node = UmlNode.from_pyreverse(diadefs, runner.config)
 
-        if "caption" not in self.options:
-            self.add_name(node)
-            return [node]
-        else:
-            figure = figure_wrapper(self, node, self.options["caption"])
-            self.add_name(figure)
-            return [figure]
+        # Craft the list of nodes to be appended to the doctree's AST.
+        ret = list()
+        for diagram in diadefs:
+            if isinstance(diagram, PackageDiagram):
+                if not with_packages:
+                    continue
+            elif isinstance(diagram, ClassDiagram):
+                if not with_classes:
+                    continue
+            else:
+                raise ValueError(f"Invalid type {type(diagram)}")
+            node = UmlNode.from_pyreverse(diagram, runner.config)
+            if caption:
+                node = figure_wrapper(self, node, caption)
+            ret.append(node)
+        return ret

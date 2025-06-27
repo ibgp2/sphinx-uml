@@ -128,16 +128,21 @@ class Run:
     # >>
 
     def diadefs(self, args: list[str]):
-        # We should see what pyreverse does (especially what is the value of self.config.source_roots)
-        extra_packages_paths = list({
-            discover_package_path(
-                arg,                      # example.module.submodule.c1
-                self.config.source_roots  # ()
-            )
-            for arg in args
-        })
+        # Squeeze extra_packages_paths, because it explores src/
+        # TODO: We should see what pyreverse does
+        # (especially, what is the value of self.config.source_roots)
+        # <<
+        # extra_packages_paths = list({
+        #     discover_package_path(
+        #         arg,                      # example.module.submodule.c1
+        #         self.config.source_roots  # ()
+        #     )
+        #     for arg in args
+        # })
+        # ===
         extra_packages_paths = list()
-        print(f"sphinx_pyreverse.main.Run.diadefs: squeezing {extra_packages_paths=}")
+        # >>
+
         with augmented_sys_path(extra_packages_paths):
             project = project_from_files(
                 args,
