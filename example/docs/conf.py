@@ -74,9 +74,9 @@ project = "My project name"
 doc_title = project
 module_name = "example"
 copyright = "My copyright"
-author = ""
+author = "My authors"
 description = "My description"
-category = ""
+category = "My category"
 
 # The version info for the project you're documenting, acts as replacement
 # for |version| and |release|, also used in various other places throughout
@@ -118,8 +118,11 @@ copybutton_prompt_is_regexp = True
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-templates_path
 templates_path = ["_templates"]
 
-# Graphviz stuff (used by inheritance_diagram)
+# Options related to sphinx.ext.graphviz.
+# Thus, it also impacts sphinx.ext.inheritance_diagram and sphinx_uml.
 graphviz_output_format = "svg"
+
+# Options related to sphinx.ext.inheritance_diagram
 bgcolor = "transparent"
 fgcolor = "black"  # Note that night mode will change this to white
 inheritance_graph_attrs = {

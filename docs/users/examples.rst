@@ -2,50 +2,61 @@
 Examples
 ========
 
-Some UML diagrams of sphinx-pyreverse.py
+This page gathers some examples of UML diagrams produced by ``sphinx-uml``.
+
+Display parameters
+------------------
+Options
+~~~~~~~
+
+As shown in the following examples, the options passed to the ``.. uml``
+directive defines what will be displayed and how it will be rendered.
+
+- ``:classes:`` enables the UML class diagram display.
+- ``:packages:`` enables the package diagram display.
+- ``:parts: N``, where ``N`` is an integer, specifies which parts of the
+  class/package names are displayed. It works like list indices. For example,
+  ``-1`` only display the last part of the class/package name.
+- ``:caption: S``, where ``S`` is an arbitrary RST line of text, defines the
+  caption of the resulting image(s).
+
+Configuration
+~~~~~~~~~~~~~
+
+The display also depends on the parameters defined in your
+Sphinx configuration file (e.g., ``docs/conf.py``).
+The following output also uses pyreverse ``colorized`` and ``ancestors``
+options by specifying the following in your Sphinx ``conf.py``.
+
+.. code-block:: py
+
+  # sphinx-pyreverse switches
+  sphinx_pyreverse_colorized = True      # colour the graphs
+  sphinx_pyreverse_all_ancestors = True  # give more Sphinx context
+
 
 Classes diagram
 ---------------
 
-RST code for sphinx-pyreverse class diagram
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To generate a `pyreverse` classes diagram in you
-rst output simply put the following, replacing
-the `sphinx_uml` with the module you want
-the diagram for.
+To generate a ``pyreverse`` classes diagram in you RST output, use
+the following snippet by replacing ``sphinx_uml`` by your module
+of interest.
 
 .. code-block:: rst
 
   .. uml:: sphinx_uml
      :classes:
+     :caption: Classes of ``sphinx_uml``
 
-The following output also uses pyreverse
-`colorized` and `ancestors` options by
-specifying the following in your Sphinx
-`conf.py`
-
-.. code-block:: py
-
-  # sphinx-pyreverse switches
-  sphinx_pyreverse_colorized = True  # colour the graphs
-  sphinx_pyreverse_all_ancestors = True # give more Sphinx context
-
-sphinx-pyreverse classes output:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-With the above rst spec and `conf.py` config you
-get:
+*Result:*
 
 .. uml:: sphinx_uml
    :classes:
+   :caption: Classes of ``sphinx_uml``
 
 
 Packages diagram
 ----------------
-
-RST code for sphinx-pyreverse package diagram
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To generate a high-level packages overview graph
 simply use the following RST:
@@ -54,23 +65,29 @@ simply use the following RST:
 
   .. uml:: sphinx_uml
      :packages:
+     :caption: Packages of ``sphinx_uml``
 
-The following output also uses pyreverse
-`colorized` and `ancestors` options by
-specifying the following in your Sphinx
-`conf.py`
-
-.. code-block:: py
-
-  # sphinx-pyreverse switches
-  sphinx_pyreverse_colorized = True  # colour the graphs
-  sphinx_pyreverse_all_ancestors = True # give more Sphinx context
-
-sphinx-pyreverse packages output:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-With the above rst spec and `conf.py` config you get:
+*Result:*
 
 .. uml:: sphinx_uml
    :packages:
+   :caption: Packages of ``sphinx_uml``
 
+Both
+----
+
+``classes`` and ``packages`` are not mutually exclusive:
+
+.. code-block:: rst
+
+  .. uml:: sphinx_uml
+     :packages:
+     :classes:
+     :caption: Packages and classes of ``sphinx_uml``
+
+*Result:*
+
+.. uml:: sphinx_uml
+   :packages:
+   :classes:
+   :caption: Both
