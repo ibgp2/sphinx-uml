@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Documentation &#8212; sphinx_uml 0.1.0 documentation</title>
+    <title>Documentation &#8212; sphinx-uml 0.1.0 documentation</title>
   
   
   
@@ -44,7 +44,7 @@
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/copybutton.js?v=30646c52"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -113,7 +113,7 @@
   
   
   
-    <p class="title logo__title">sphinx_uml 0.1.0 documentation</p>
+    <p class="title logo__title">sphinx-uml 0.1.0 documentation</p>
   
 </a></div>
     
@@ -383,8 +383,6 @@
 <h1>Sphinx-uml<a class="headerlink" href="#sphinx-uml" title="Link to this heading">#</a></h1>
 <a class="reference external image-reference" href="https://pypi.python.org/pypi/sphinx-uml/"><img alt="PyPI" src="https://img.shields.io/pypi/v/sphinx-uml.svg" />
 </a>
-<a class="reference external image-reference" href="https://test.pypi.org/project/sphinx-uml/"><img alt="test.PyPI" src="https://img.shields.io/pypi/v/sphinx-uml.svg" />
-</a>
 <a class="reference external image-reference" href="https://github.com/ibgp2/sphinx-uml/actions/workflows/build.yml"><img alt="Build" src="https://github.com/ibgp2/sphinx-uml/workflows/build/badge.svg" />
 </a>
 <a class="reference external image-reference" href="https://github.com/ibgp2/sphinx-uml/actions/workflows/docs.yml"><img alt="Documentation" src="https://github.com/ibgp2/sphinx-uml/workflows/docs/badge.svg" />
@@ -428,12 +426,12 @@ modules, just like <span class="raw-html-md"><a href="https://github.com/sphinx-
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate the UML diagram for each value of x</span>
 <span class="k">for</span><span class="w"> </span>x<span class="w"> </span><span class="k">in</span><span class="w"> </span>example<span class="w"> </span>example.module<span class="w"> </span>example.module.submodule<span class="w"> </span>example.module.submodule.c1
 <span class="k">do</span>
-<span class="w">     </span>pyreverse2<span class="w"> </span><span class="se">\</span>
-<span class="w">             </span>--sphinx-html-dir<span class="w"> </span><span class="nv">$HOME</span>/git/sphinx-pyreverse/example/docs/_build/html/<span class="w"> </span><span class="se">\</span>
-<span class="w">             </span>--output<span class="w"> </span>svg<span class="w"> </span><span class="se">\</span>
-<span class="w">             </span>--project<span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="se">\</span>
-<span class="w">             </span><span class="nv">$x</span>
-<span class="w">     </span><span class="c1"># The previous command outputs {classes,packages}_$o.svg</span>
+<span class="w">   </span>pyreverse2<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>--sphinx-html-dir<span class="w"> </span><span class="nv">$HOME</span>/git/sphinx-pyreverse/example/docs/_build/html/<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>--output<span class="w"> </span>svg<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>--project<span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="se">\</span>
+<span class="w">      </span><span class="nv">$x</span>
+<span class="w">   </span><span class="c1"># The previous command outputs {classes,packages}_$o.svg</span>
 <span class="k">done</span>
 </pre></div>
 </div>
@@ -452,16 +450,14 @@ modules, just like <span class="raw-html-md"><a href="https://github.com/sphinx-
 <li class="toctree-l1"><a class="reference internal" href="users/index.html">Users</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="users/usage_rst.html">Usage in a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="users/examples.html">Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="users/examples.html#classes-diagram">Classes diagram</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="users/examples.html#rst-code-for-sphinx-pyreverse-class-diagram">RST code for sphinx-pyreverse class diagram</a></li>
-<li class="toctree-l4"><a class="reference internal" href="users/examples.html#sphinx-pyreverse-classes-output">sphinx-pyreverse classes output:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="users/examples.html#display-parameters">Display parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="users/examples.html#options">Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="users/examples.html#configuration">Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="users/examples.html#packages-diagram">Packages diagram</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="users/examples.html#rst-code-for-sphinx-pyreverse-package-diagram">RST code for sphinx-pyreverse package diagram</a></li>
-<li class="toctree-l4"><a class="reference internal" href="users/examples.html#sphinx-pyreverse-packages-output">sphinx-pyreverse packages output:</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="users/examples.html#classes-diagram">Classes diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="users/examples.html#packages-diagram">Packages diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="users/examples.html#both">Both</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="users/automatic_documentation.html">Automatic documentation</a></li>
