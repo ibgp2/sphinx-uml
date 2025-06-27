@@ -13,8 +13,8 @@ from .main import ParsePyreverseArgs, Run
 
 def run_pyreverse2(args: list[str] = None):
     """
-    `pyreverse2` entry point which is used to draw UML diagrams by
-    inspecting some python module.
+    ``pyreverse2`` entry point, which is used to draw
+    UML diagrams by inspecting some python module.
 
     To display the help related to this program:
 
@@ -26,12 +26,12 @@ def run_pyreverse2(args: list[str] = None):
 
     .. code:: bash
 
-        pyreverse2 \
-            --output svg \
-            --project example.a \
-            --sphinx-html-dir  docs/_html \
-            --output-directory docs/ \
-            -m y
+        pyreverse2 \\
+            --output svg \\
+            --project example.a \\
+            --sphinx-html-dir docs/_html \\
+            --output-directory docs/ \\
+            -m y \\
             example.a
 
     Args:
