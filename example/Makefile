@@ -58,7 +58,6 @@ clean-doc:
 	rm -f docs/example.*.rst docs/example.rst docs/modules.rst
 
 docs: clean-doc
-	poetry run api-gen
 	poetry run sphinx-apidoc -f -o docs/ src/ --separate --templatedir=docs/_templates
 	poetry run sphinx-build -b html docs/ docs/_build/html
 	$(BROWSER) docs/_build/html/index.html
