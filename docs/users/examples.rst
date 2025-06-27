@@ -30,10 +30,12 @@ options by specifying the following in your Sphinx ``conf.py``.
 
 .. code-block:: py
 
-  # sphinx-pyreverse switches
-  sphinx_pyreverse_colorized = True      # colour the graphs
-  sphinx_pyreverse_all_ancestors = True  # give more Sphinx context
+  # sphinx-uml switches
+  uml_colorized = True  # colour the graphs
+  uml_all_ancestors = True  # give more Sphinx context
+  uml_all_associated = True
 
+See the configuration section for further details.
 
 Classes diagram
 ---------------
