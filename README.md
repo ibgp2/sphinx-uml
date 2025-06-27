@@ -1,7 +1,6 @@
 # Sphinx-uml
 
 [![PyPI](https://img.shields.io/pypi/v/sphinx-uml.svg)](https://pypi.python.org/pypi/sphinx-uml/)
-[![test.PyPI](https://img.shields.io/pypi/v/sphinx-uml.svg)](https://test.pypi.org/project/sphinx-uml/)
 [![Build](https://github.com/ibgp2/sphinx-uml/workflows/build/badge.svg)](https://github.com/ibgp2/sphinx-uml/actions/workflows/build.yml)
 [![Documentation](https://github.com/ibgp2/sphinx-uml/workflows/docs/badge.svg)](https://github.com/ibgp2/sphinx-uml/actions/workflows/docs.yml)
 [![ReadTheDocs](https://readthedocs.org/projects/sphinx-uml/badge/?version=latest)](https://sphinx-uml.readthedocs.io/en/)
@@ -48,11 +47,11 @@ _Example:_ In the example below, we assume that:
 # Generate the UML diagram for each value of x
 for x in example example.module example.module.submodule example.module.submodule.c1
 do
-	pyreverse2 \
-		--sphinx-html-dir $HOME/git/sphinx-pyreverse/example/docs/_build/html/ \
-		--output svg \
-		--project $x \
-		$x
-	# The previous command outputs {classes,packages}_$o.svg
+   pyreverse2 \
+      --sphinx-html-dir $HOME/git/sphinx-pyreverse/example/docs/_build/html/ \
+      --output svg \
+      --project $x \
+      $x
+   # The previous command outputs {classes,packages}_$o.svg
 done
 ```
