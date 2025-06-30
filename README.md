@@ -27,7 +27,8 @@ _Example:_
     :packages:
 ```
 
-The `example/` toy example show how to integrate this directive using
+[This toy example](https://github.com/ibgp2/sphinx-uml/tree/main/example)
+shows how to use the ``.. uml`` directive in a Sphinx documentation using
 [`sphinx.ext.autodoc`](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html) and
 [`sphinx.ext.autosummary`](https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html).
 
@@ -35,7 +36,7 @@ The `example/` toy example show how to integrate this directive using
 
 The `pyreverse2` behaves like the original `pyreverse` command with two main differences:
 
-* `--ouput`: `svg` and `dot` are the only supported formats;
+* `--ouput`: `svg` and `dot` are the only supported output formats;
 * `--sphinx-html-dir` can be used to indicate where is the HTML root directory.
 
 _Example:_ In the example below, we assume that:
