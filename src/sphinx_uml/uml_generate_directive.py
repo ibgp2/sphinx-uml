@@ -93,7 +93,6 @@ class UMLGenerateDirective(SphinxDirective):
     optional_arguments = 0
     final_argument_whitespace = True
     option_spec: ClassVar[OptionSpec] = {
-        "parts": int,
         "caption": directives.unchanged,
         "classes": directives.flag,
         "packages": directives.flag,
@@ -179,11 +178,10 @@ class UMLGenerateDirective(SphinxDirective):
         # ..uml: module_name
         module_name = self.arguments[0]
 
-        # :classes:, :packages:, :caption:, :parts:
+        # :classes:, :packages:, :caption:
         with_classes = "classes" in self.options
         with_packages = "packages" in self.options
         caption = self.options.get("caption")
-        parts = self.options.get("parts", 0)
 
         pyprocess_args = self._build_args() + [
             "--sphinx-html-dir", self.html_root_dir(),
