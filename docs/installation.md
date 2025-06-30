@@ -1,5 +1,6 @@
-# Preliminaries
-## Linux (Debian / Ubuntu)
+# Installation 
+## Preliminaries
+### Linux (Debian / Ubuntu)
 
 Depending on your preferences, you may install the dependencies through APT, or through PIP. Please see the following steps if you want to use APT dependencies.
 
@@ -23,13 +24,13 @@ sudo apt install git python3-pip bumpversion python3-coverage python3-pytest pyt
 sudo pip3 install sphinx_mdinclude --break-system-packages
 ```
 
-## Windows
+### Windows
 
 * Install [poetry](https://pypi.org/project/poetry/).
 * Install [graphviz](https://jupyter.org/install).
 
-# Installation
-## From PIP
+## Installing `sphinx-uml`
+### From PIP
 
 There are several ways to install the package:
 
@@ -49,7 +50,7 @@ deactivate               # Leave the  "env" virtual environment
 sudo pip3 install sphinx_uml --break-system-packages
 ```
 
-## From git
+### From git
 
 * Clone the repository and install the package:
 
