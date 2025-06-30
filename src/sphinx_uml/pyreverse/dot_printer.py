@@ -49,17 +49,22 @@ class DotPrinter(_DotPrinter):
                 return ""
             if "tooltip" not in kwargs:
                 kwargs["tooltip"] = ""
+            if "href" in kwargs and kwargs["href"] is None:
+                kwargs.pop("href")
             attrs = " ".join([
-                f"{k}='{v}'"
+                f'{k}="{v}"'
                 for k, v in kwargs.items()
             ])
-            return f"<tr><td {attrs}>{text}</td></tr>"
+            return f"\n\t<tr><td {attrs}>{text}</td></tr>"
+
+        def escape_string(s: str) -> str:
+            return s.replace('"', '\\"')
 
         proxy = SphinxHtmlProxy()
         class_name = properties.label
         label = (
-            f"<table border='0' align='left' tooltip='{class_name}' "
-            "width='0' cellpadding='0'>"
+            f'<table border="0" align="left" tooltip="{class_name}" '
+            'width="0" cellpadding="0">'
         )
         class_url = proxy.url()
 
@@ -67,10 +72,14 @@ class DotPrinter(_DotPrinter):
         label += vstack(
             border=1,
             href=class_url,
-            tooltip=class_name,
+            tooltip=escape_string(class_name),
             target="_top",
             text=f"<b>{class_name}</b>"
         )
+
+        # Only class names
+        if properties.attrs is None and properties.methods is None:
+            return label + "</table>"
 
         attrs: list[str] = properties.attrs or []
         methods: list[nodes.FunctionDef] = properties.methods or []
@@ -88,7 +97,7 @@ class DotPrinter(_DotPrinter):
                 align="left",
                 href=attr_url,
                 target="_top",
-                tooltip=f"{class_name}.{attr_label}",
+                tooltip=escape_string(f"{class_name}.{attr_label}"),
                 text=attr_label
             )
 
@@ -112,7 +121,7 @@ class DotPrinter(_DotPrinter):
                 align="left",
                 href=method_url,
                 target="_top",
-                tooltip=f"{class_name}.{func.name}",
+                tooltip=escape_string(f"{class_name}.{func.name}"),
                 text=prototype
             )
 
@@ -139,12 +148,16 @@ class DotPrinter(_DotPrinter):
         if properties is None:
             properties = NodeProperties(label=name)
         shape = SHAPES[type_]
-        color = properties.color if properties.color is not None else self.DEFAULT_COLOR
+        color = (
+            properties.color if properties.color is not None
+            else self.DEFAULT_COLOR
+        )
         style = "filled" if color != self.DEFAULT_COLOR else "solid"
         label = self._build_label_for_node(properties)
         label_part = f", label=<{label}>" if label else ""
         fontcolor_part = (
-            f', fontcolor="{properties.fontcolor}"' if properties.fontcolor else ""
+            f', fontcolor="{properties.fontcolor}"' if properties.fontcolor
+            else ""
         )
 
         # URLs in Graphviz: https://graphviz.org/docs/attrs/URL/

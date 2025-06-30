@@ -18,7 +18,7 @@
   * Enabled automatic API documentation.
   * Added a toy example project. See `example/`.
 
-## 0.2.0
+## 0.2.0 (2025-06-30)
 
 * __Packaging__:
   * Reorganized sources.
@@ -29,3 +29,7 @@
 * __Documentation:__
   * Improved sphinx templates (see `example/docs/_templates`)
   * Using `inheritance-diagram` option to customize `uml-sphinx` diagram display.
+* __Bug fixes:__
+  * `pyreverse2`: fixed output if `--sphinx-html-dir` is omitted.
+  * Fixed graphviz output if a tooltip would have contained special characters
+    * See, e.g., `pyreverse2 --output svg pylint.typing`

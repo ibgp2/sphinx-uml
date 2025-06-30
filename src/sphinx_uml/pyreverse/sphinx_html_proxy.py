@@ -42,8 +42,11 @@ class SphinxHtmlProxy(metaclass=Singleton):
                 ``""`` otherwise.
 
         Returns:
-            The resulting URL.
+            The resulting URL if any, ``None`` otherwise.
         """
+        if not self.sphinx_html_dir:
+            # HTML documentation directory not set.
+            return None
         if ":" in name:
             name = name[:name.find(":")]
         return (
