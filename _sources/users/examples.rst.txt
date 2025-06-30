@@ -14,9 +14,6 @@ directive defines what will be displayed and how it will be rendered.
 
 - ``:classes:`` enables the UML class diagram display.
 - ``:packages:`` enables the package diagram display.
-- ``:parts: N``, where ``N`` is an integer, specifies which parts of the
-  class/package names are displayed. It works like list indices. For example,
-  ``-1`` only display the last part of the class/package name.
 - ``:caption: S``, where ``S`` is an arbitrary RST line of text, defines the
   caption of the resulting image(s).
 

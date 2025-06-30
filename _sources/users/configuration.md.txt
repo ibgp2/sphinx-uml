@@ -3,25 +3,61 @@
 
 To configure this extension in a Sphinx documentation, update the `conf.py`:
 
-* `uml_output` (see `--output`), default is `"png"`;
-* `uml_filter_mode` (see `--filter_mode`), default is `None`;
-* `uml_class` (see `--class`), default is `None`;
-* `uml_show_ancestors` (see `--show_ancestors`), default is `None`;
-* `uml_all_ancestors` (see `--all_ancestors`), default is `None`;
-* `uml_show_associated` (see `--show_associated`), default is `None`;
-* `uml_all_associated` (see `--all_associated`), default is `None`;
-* `uml_show_builtin` (see `--show_builtin`), default is `None`;
-* `uml_module_names` (see `--module_names`), default is `None`;
-* `uml_only_classnames` (see `--only_classnames`), default is `None`;
-* `uml_ignore` (see `--ignore`), default is `None`;
+<table border=1 cellpadding=5>
+<tr>
+	<th>Sphinx option</th>
+	<th><code>pyreverse2</code> option</th>
+	<th>Default value</th>
+</tr><tr>
+	<td><code>uml_filter_mode</code></td>
+	<td><code>--filter_mode FILTER</code></td>
+	<td><code>"PUB_ONLY"</code></td>
+</tr><tr>
+	<td><code>uml_class</code></td>
+	<td><code>--class CLASSES</code></td>
+	<td><code>[]</code></td>
+</tr><tr>
+	<td><code>uml_show_ancestors</code></td>
+	<td><code>--show_ancestors LEVEL</code></td>
+	<td><code>None</code></td>
+</tr><tr>
+	<td><code>uml_all_ancestors</code></td>
+	<td><code>--all_ancestors</code></td>
+	<td><code>False</code></td>
+</tr><tr>
+	<td><code>uml_show_associated</code></td>
+	<td><code>--show_associated</code></td>
+	<td><code>None</code></td>
+</tr><tr>
+	<td><code>uml_all_associated</code></td>
+	<td><code>--all_associated</code></td>
+	<td><code>False</code></td>
+</tr><tr>
+	<td><code>uml_show_builtin</code></td>
+	<td><code>--show_builtin</code></td>
+	<td><code>False</code></td>
+</tr><tr>
+	<td><code>uml_module_names</code></td>
+	<td><code>--module_names MODULES</code></td>
+	<td><code>False</code></td>
+</tr><tr>
+	<td><code>uml_only_classnames</code></td>
+	<td><code>--only_classnames</code></td>
+	<td><code>False</code></td>
+</tr><tr>
+	<td><code>uml_ignore</code></td>
+	<td><code>--ignore IGNORE</code></td>
+	<td><code>("CVS",)</code></td>
+</tr><tr>
+	<td><code>uml_colorized</code></td>
+	<td><code>--colorized</code></td>
+	<td><code>False</code></td>
+</tr>
+</table>
 
-The options related to image output are now irrelevant.
-
-* `uml_image_max_width` (int) Rendered output max width in pixels. default is `1000`;
-* `uml_image_scale` (float) Scale the rendered output. default is `1.0`;
-* `uml_colorized` (see `--colorized`), default is `None`.
-
-See also [example/docs/doc.conf] as an example.
+See also:
+* `example/docs/doc.conf` as an example:
+* `pyreverse --help` for more details about each option.
 
 ## Environment
 

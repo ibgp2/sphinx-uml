@@ -130,7 +130,7 @@
     
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../installation.html">
-    Preliminaries
+    Installation
   </a>
 </li>
 
@@ -265,7 +265,7 @@
     
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../installation.html">
-    Preliminaries
+    Installation
   </a>
 </li>
 
@@ -423,26 +423,61 @@
 <section id="conf-py">
 <h2><code class="docutils literal notranslate"><span class="pre">conf.py</span></code><a class="headerlink" href="#conf-py" title="Link to this heading">#</a></h2>
 <p>To configure this extension in a Sphinx documentation, update the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<table border=1 cellpadding=5>
+<tr>
+     <th>Sphinx option</th>
+     <th><code>pyreverse2</code> option</th>
+     <th>Default value</th>
+</tr><tr>
+     <td><code>uml_filter_mode</code></td>
+     <td><code>--filter_mode FILTER</code></td>
+     <td><code>"PUB_ONLY"</code></td>
+</tr><tr>
+     <td><code>uml_class</code></td>
+     <td><code>--class CLASSES</code></td>
+     <td><code>[]</code></td>
+</tr><tr>
+     <td><code>uml_show_ancestors</code></td>
+     <td><code>--show_ancestors LEVEL</code></td>
+     <td><code>None</code></td>
+</tr><tr>
+     <td><code>uml_all_ancestors</code></td>
+     <td><code>--all_ancestors</code></td>
+     <td><code>False</code></td>
+</tr><tr>
+     <td><code>uml_show_associated</code></td>
+     <td><code>--show_associated</code></td>
+     <td><code>None</code></td>
+</tr><tr>
+     <td><code>uml_all_associated</code></td>
+     <td><code>--all_associated</code></td>
+     <td><code>False</code></td>
+</tr><tr>
+     <td><code>uml_show_builtin</code></td>
+     <td><code>--show_builtin</code></td>
+     <td><code>False</code></td>
+</tr><tr>
+     <td><code>uml_module_names</code></td>
+     <td><code>--module_names MODULES</code></td>
+     <td><code>False</code></td>
+</tr><tr>
+     <td><code>uml_only_classnames</code></td>
+     <td><code>--only_classnames</code></td>
+     <td><code>False</code></td>
+</tr><tr>
+     <td><code>uml_ignore</code></td>
+     <td><code>--ignore IGNORE</code></td>
+     <td><code>("CVS",)</code></td>
+</tr><tr>
+     <td><code>uml_colorized</code></td>
+     <td><code>--colorized</code></td>
+     <td><code>False</code></td>
+</tr>
+</table><p>See also:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">uml_output</span></code> (see <code class="docutils literal notranslate"><span class="pre">--output</span></code>), default is <code class="docutils literal notranslate"><span class="pre">&quot;png&quot;</span></code>;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">uml_filter_mode</span></code> (see <code class="docutils literal notranslate"><span class="pre">--filter_mode</span></code>), default is <code class="docutils literal notranslate"><span class="pre">None</span></code>;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">uml_class</span></code> (see <code class="docutils literal notranslate"><span class="pre">--class</span></code>), default is <code class="docutils literal notranslate"><span class="pre">None</span></code>;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">uml_show_ancestors</span></code> (see <code class="docutils literal notranslate"><span class="pre">--show_ancestors</span></code>), default is <code class="docutils literal notranslate"><span class="pre">None</span></code>;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">uml_all_ancestors</span></code> (see <code class="docutils literal notranslate"><span class="pre">--all_ancestors</span></code>), default is <code class="docutils literal notranslate"><span class="pre">None</span></code>;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">uml_show_associated</span></code> (see <code class="docutils literal notranslate"><span class="pre">--show_associated</span></code>), default is <code class="docutils literal notranslate"><span class="pre">None</span></code>;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">uml_all_associated</span></code> (see <code class="docutils literal notranslate"><span class="pre">--all_associated</span></code>), default is <code class="docutils literal notranslate"><span class="pre">None</span></code>;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">uml_show_builtin</span></code> (see <code class="docutils literal notranslate"><span class="pre">--show_builtin</span></code>), default is <code class="docutils literal notranslate"><span class="pre">None</span></code>;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">uml_module_names</span></code> (see <code class="docutils literal notranslate"><span class="pre">--module_names</span></code>), default is <code class="docutils literal notranslate"><span class="pre">None</span></code>;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">uml_only_classnames</span></code> (see <code class="docutils literal notranslate"><span class="pre">--only_classnames</span></code>), default is <code class="docutils literal notranslate"><span class="pre">None</span></code>;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">uml_ignore</span></code> (see <code class="docutils literal notranslate"><span class="pre">--ignore</span></code>), default is <code class="docutils literal notranslate"><span class="pre">None</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">example/docs/doc.conf</span></code> as an example:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pyreverse</span> <span class="pre">--help</span></code> for more details about each option.</p></li>
 </ul>
-<p>The options related to image output are now irrelevant.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">uml_image_max_width</span></code> (int) Rendered output max width in pixels. default is <code class="docutils literal notranslate"><span class="pre">1000</span></code>;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">uml_image_scale</span></code> (float) Scale the rendered output. default is <code class="docutils literal notranslate"><span class="pre">1.0</span></code>;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">uml_colorized</span></code> (see <code class="docutils literal notranslate"><span class="pre">--colorized</span></code>), default is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-</ul>
-<p>See also [example/docs/doc.conf] as an example.</p>
 </section>
 <section id="environment">
 <h2>Environment<a class="headerlink" href="#environment" title="Link to this heading">#</a></h2>
