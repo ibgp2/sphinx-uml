@@ -13,7 +13,7 @@ build:
   tools:
     python: "3.11"
   apt_packages:
-    - make
+    - graphviz  # https://stackoverflow.com/a/77369269 
   jobs:
     # https://docs.readthedocs.io/en/stable/build-customization.html
     post_create_environment:
