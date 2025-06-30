@@ -21,13 +21,12 @@ def setup(app: Sphinx) -> ExtensionMetadata:
     app.add_directive(directive_name_to_use, UMLGenerateDirective)
 
     # sphinx.ext.inheritance_diagram-like options
-    app.add_config_value("uml_graph_attrs", {}, "")
-    app.add_config_value("uml_node_attrs", {}, "")
-    app.add_config_value("uml_edge_attrs", {}, "")
-    app.add_config_value("uml_alias", {}, "")
+    # app.add_config_value("uml_graph_attrs", {}, "")
+    # app.add_config_value("uml_node_attrs", {}, "")
+    # app.add_config_value("uml_edge_attrs", {}, "")
+    # app.add_config_value("uml_alias", {}, "")
 
     # pylint.pyreverse-like options
-    app.add_config_value("uml_output", default="svg", rebuild="env")
     app.add_config_value("uml_filter_mode", default=None, rebuild="env")
     app.add_config_value("uml_class", default=None, rebuild="env")
     app.add_config_value("uml_show_ancestors", default=None, rebuild="env")
@@ -38,8 +37,6 @@ def setup(app: Sphinx) -> ExtensionMetadata:
     app.add_config_value("uml_module_names", default=None, rebuild="env")
     app.add_config_value("uml_only_classnames", default=None, rebuild="env")
     app.add_config_value("uml_ignore", default=None, rebuild="env")
-    app.add_config_value("uml_image_max_width", default=1000, rebuild="env")
-    app.add_config_value("uml_image_scale", default=1.0, rebuild="env")
     app.add_config_value("uml_colorized", default=None, rebuild="env")
 
     return {
