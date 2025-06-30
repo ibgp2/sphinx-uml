@@ -14,8 +14,8 @@ and runs the following operations:
 
 - parsing the arguments from the CLI;
 - initializing the configuration needed by the :py:meth:`pyreverse.run` method;
-- calling the :py:meth:`pylint.pyreverse.main.Run.run` method with the remaining
-  arguments;
+- calling the :py:meth:`pylint.pyreverse.main.Run.run` method with the
+  remaining arguments;
 - exiting the program using the :py:func:`sys.exit` function!
 
 This design prevents to call `pyreverse` multiple times, which is needed to
@@ -38,7 +38,7 @@ from pylint.pyreverse.main import (
     check_if_graphviz_supports_format,
     DiadefsHandler,
     DIRECTLY_SUPPORTED_FORMATS,
-    discover_package_path,
+    # discover_package_path,
     insert_default_options,
     Linker,
     project_from_files,
@@ -104,14 +104,13 @@ class ParsePyreverseArgs(_Run):
         if self.config.output_format not in DIRECTLY_SUPPORTED_FORMATS:
             check_graphviz_availability()
             print(
-                f"Format {self.config.output_format} is not supported natively."
-                " Pyreverse will try to generate it using Graphviz..."
+                f"Format {self.config.output_format} isn't supported natively."
+                " pyreverse2 will try to generate it using Graphviz..."
             )
             check_if_graphviz_supports_format(self.config.output_format)
 
 
 class Run:
-    # << We change the constructor as _Run.__init__ is meant to be called only once
     def __init__(self, config: argparse.Namespace):
         """
         Constructor.
@@ -124,8 +123,9 @@ class Run:
         Returns:
             The execution code (``0`` means everything is fine).
         """
+        # pylint.pyreverse.main.Run is meant to be called only once
+        # so let's rewrite __init__:
         self.config = config
-    # >>
 
     def diadefs(self, args: list[str]):
         # Squeeze extra_packages_paths, because it explores src/
@@ -162,7 +162,8 @@ class Run:
         Args:
             args (list[str]): The remaining arguments, that are not yet
                 handled by the constructor, typically, the class or module
-                being pyreversed. *Example:* ``['example.module.submodule.c1']``.
+                being pyreversed.
+                *Example:* ``['example.module.submodule.c1']``.
         """
         dwriter = writer.DiagramWriter(self.config)
         # << Writer hijacking

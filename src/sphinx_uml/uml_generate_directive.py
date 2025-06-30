@@ -1,6 +1,5 @@
 import argparse
 from pathlib import Path
-from docutils import nodes
 from docutils.parsers.rst import directives
 from pylint.pyreverse.main import writer
 from pylint.pyreverse.diagrams import (
@@ -12,14 +11,8 @@ from sphinx.ext.graphviz import (
     graphviz,
 )
 from sphinx.util.docutils import SphinxDirective
-from sphinx.util.typing import (
-    ExtensionMetadata,
-    OptionSpec,
-)
-from typing import (
-    TYPE_CHECKING,
-    ClassVar,
-)
+from sphinx.util.typing import OptionSpec
+from typing import ClassVar
 
 
 class UmlNode(graphviz):

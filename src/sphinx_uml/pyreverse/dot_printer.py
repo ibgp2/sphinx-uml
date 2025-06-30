@@ -108,13 +108,19 @@ class DotPrinter(_DotPrinter):
                 text="<b>Methods:</b>"
             )
         for func in methods:
-            args = ", ".join(self._get_method_arguments(func)).replace("|", r"\|")
+            args = (
+                ", "
+                .join(self._get_method_arguments(func))
+                .replace("|", r"\|")
+            )
             method_name = func.name
             method_url = proxy.url(func.name)
             prototype = rf"{method_name}({args})"
             if func.returns:
                 annotation_label = get_annotation_label(func.returns)
-                prototype += ": " + self._escape_annotation_label(annotation_label)
+                prototype += (
+                    ": " + self._escape_annotation_label(annotation_label)
+                )
             if func.is_abstract():
                 prototype = f"<i>{prototype}</i>"
             label += vstack(
@@ -135,7 +141,6 @@ class DotPrinter(_DotPrinter):
         type_: NodeType,
         properties: NodeProperties | None = None,
     ) -> None:
-        # This must be carried by the node name, which impose to run: pyverse -m y ...
         proxy = SphinxHtmlProxy()
         i = name.rfind(".")
         if i > 0:
@@ -166,6 +171,10 @@ class DotPrinter(_DotPrinter):
         # dot`digraph { b [URL="https://google.com" target="_top"]; a -> b; }`
         url = proxy.url()
         self.emit(
-            f'"{name}" [color="{color}"{fontcolor_part}{label_part}, shape="{shape}", '
-            f'style="{style}", URL="{url}"];'
+            f'"{name}" [' + ", ".join([
+                f'color="{color}"{fontcolor_part}{label_part}',
+                f'shape="{shape}"',
+                f'style="{style}"',
+                f'URL="{url}"',
+            ]) + "];"
         )
