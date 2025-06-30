@@ -2,7 +2,7 @@ __author__ = "Marc-Olivier Buob"
 __maintainer__ = "Marc-Olivier Buob"
 __email__ = "marc-olivier.buob@nokia-bell-labs.com"
 __license__ = "BSD-3"
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __all__ = ["UMLGenerateDirective"]
 
 
