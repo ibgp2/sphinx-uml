@@ -1,6 +1,7 @@
 # Troubleshooting
 
-`sphinx-uml` uses `sphinx-docs`' logging API to write information to the log files.
+`sphinx-uml` uses the [Sphinx logging API](https://www.sphinx-doc.org/en/master/extdev/logging.html)
+to write information to the log files.
 
 To use it run your ``sphinx-build`` command with ``-v -v -v -w $(pwd)/sphinx.log``.
 

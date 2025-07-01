@@ -50,3 +50,8 @@
   * `UMLGenerateDirective.html_root_dir` now returns a `pathlib.Path` instance.
 *  __Bug fixes:__
   * Fixed "Open in a new tab" link URL.
+
+## 0.3.2
+
+* __Documentation__
+  * Reorganized/fixed the package documentation.
