@@ -61,7 +61,7 @@ preview = true
 
 [tool.poetry]
 name = "sphinx-uml"
-version = "0.3.0"
+version = "0.3.1"
 description = "sphinx-uml is sphinx extension to generate a UML diagram from python"
 authors = [	
 	"Marc-Olivier Buob <marc-olivier.buob@nokia-bell-labs.com>",
