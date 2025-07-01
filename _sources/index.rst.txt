@@ -4,7 +4,6 @@
 
    installation
    Users <users/index>
-   developers
    API <api/index>
    authors
    history
