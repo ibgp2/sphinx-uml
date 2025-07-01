@@ -51,7 +51,7 @@
 *  __Bug fixes:__
   * Fixed "Open in a new tab" link URL.
 
-## 0.3.2
+## 0.3.2 (2025-07-01)
 
 * __Documentation__
   * Reorganized/fixed the package documentation.
