@@ -1,5 +1,6 @@
 import argparse
 from pathlib import Path
+from docutils import nodes
 from docutils.parsers.rst import directives
 from pylint.pyreverse.main import writer
 from pylint.pyreverse.diagrams import (
@@ -45,14 +46,14 @@ class UmlNode(graphviz):
         return node
 
     @classmethod
-    def from_pyreverse(
+    def to_dot(
         cls,
         diagram: ClassDiagram | PackageDiagram,
         config: argparse.Namespace
-    ) -> "UmlNode":
+    ) -> str:
         """
-        Builds a :py:class:`UmlNode` from diagram definitions
-        obtained from pyreverse.
+        Exports a diagram definition obtained from ``pyreverse``
+        to a Graphviz dot string.
 
         Args:
             diagram (ClassDiagram | PackageDiagram): The diagram
@@ -71,8 +72,51 @@ class UmlNode(graphviz):
         dwriter.api_doc = SphinxHtmlProxy()
         dwriter.api_doc.sphinx_html_dir = config.sphinx_html_dir
         dwriter.write([diagram])
-        dotcode = "\n".join(dwriter.printer.lines)
-        return cls.from_dot(dotcode)
+        return "\n".join(dwriter.printer.lines)
+
+    @classmethod
+    def from_pyreverse(
+        cls,
+        diagram: ClassDiagram | PackageDiagram,
+        config: argparse.Namespace
+    ) -> "UmlNode":
+        """
+        Builds a :py:class:`UmlNode` from a diagram definition
+        obtained from ``pyreverse``.
+
+        Args:
+            diagram (ClassDiagram | PackageDiagram): The diagram
+                that must be exported.
+            config (argparse.Namespace): The configuration
+                obtained from the Sphinx configuration file.
+
+        Returns:
+            The resulting :py:class:`UmlNode` instance.
+        """
+        return cls.from_dot(cls.to_dot(diagram, config))
+
+
+def guess_svg_basename(options: dict, code: str) -> str:
+    """
+    Infers the svg filename of an UML diagram
+    See ``/usr/lib/python3/dist-packages/sphinx/ext/graphviz.py``.
+
+    Args:
+        options (dict): The options passed to the
+            :py:func:`graphviz.ext.render_dot` function.
+        code (str): A graphviz string, passed to the
+            :py:func:`graphviz.ext.render_dot` function.
+
+    Returns:
+        The corresponding SVG basename
+    """
+    from hashlib import sha1
+    graphviz_dot = options.get("graphviz_dot", None)
+    hashkey = (code + str(options) + str(graphviz_dot) + "()").encode()
+    svg_basename = (
+        f'graphviz-{sha1(hashkey, usedforsecurity=False).hexdigest()}.svg'
+    )
+    return svg_basename
 
 
 class UMLGenerateDirective(SphinxDirective):
@@ -191,6 +235,7 @@ class UMLGenerateDirective(SphinxDirective):
         # Craft the list of nodes to be appended to the doctree's AST.
         ret = list()
         for diagram in diadefs:
+            # :classes: and :packages: switches
             if isinstance(diagram, PackageDiagram):
                 if not with_packages:
                     continue
@@ -199,8 +244,26 @@ class UMLGenerateDirective(SphinxDirective):
                     continue
             else:
                 raise ValueError(f"Invalid type {type(diagram)}")
-            node = UmlNode.from_pyreverse(diagram, runner.config)
+
+            # Build graphviz node
+            code = UmlNode.to_dot(diagram, runner.config)
+            node = UmlNode.from_dot(code)
+
+            svg_basename = guess_svg_basename(node.attributes["options"], code)
+
+            # Appends a link 'Open in a new tab'
+            paragraph = nodes.paragraph(text="")
+            paragraph += nodes.reference(
+                # See the HTMLTranslator.visit_reference function in
+                # /usr/lib/python3/dist-packages/docutils/writers/_html_base.py
+                text="Open in a new tab",
+                refuri="../_images/" + svg_basename,
+            )
+
+            # Add caption
             if caption:
                 node = figure_wrapper(self, node, caption)
-            ret.append(node)
+
+            ret += [node, paragraph]
+
         return ret

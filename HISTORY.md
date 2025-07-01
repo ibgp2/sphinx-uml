@@ -33,3 +33,13 @@
   * `pyreverse2`: fixed output if `--sphinx-html-dir` is omitted.
   * Fixed graphviz output if a tooltip would have contained special characters
     * See, e.g., `pyreverse2 --output svg pylint.typing`
+
+## 0.3.0 (2025-07-01)
+
+* __CI:__
+  * Updated `.readthedocs.yml` so that the API documentation is auto-generated.
+* __API__:
+  * Added the `UmlNode.to_dot` method.
+  * Added the `guess_svg_basename` function.
+* __Features:__
+  * An "Open in a new tab" link is now displayed below each UML diagram. 
