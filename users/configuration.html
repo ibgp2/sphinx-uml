@@ -48,8 +48,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'users/configuration';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Troubleshooting" href="troubleshouting.html" />
-    <link rel="prev" title="Automatic documentation" href="automatic_documentation.html" />
+    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="prev" title="Usage in a .rst file" href="usage_rst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.3.1" />
@@ -143,6 +143,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developers.html">
+    Documentation (sphinx)
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../api/index.html">
     API
   </a>
@@ -155,13 +162,23 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../history.html">
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../history.html">
     History
   </a>
 </li>
 
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -278,6 +295,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developers.html">
+    Documentation (sphinx)
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../api/index.html">
     API
   </a>
@@ -353,10 +377,11 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage_rst.html">Usage in a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="automatic_documentation.html">Automatic documentation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="automatic_documentation.html">Using <code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> in auto-generated documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshouting.html">Troubleshooting</a></li>
 </ul>
 </div>
@@ -420,9 +445,30 @@
                   
   <section id="configuration">
 <h1>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h1>
+<section id="optional-parameters">
+<h2>Optional parameters<a class="headerlink" href="#optional-parameters" title="Link to this heading">#</a></h2>
+<p>When calling the <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">uml</span></code> directive, you can pass the following options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">:classes:</span></code> enables the UML class diagram display;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:packages:</span></code> enables the package diagram display;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:caption:</span> <span class="pre">S</span></code>, where <code class="docutils literal notranslate"><span class="pre">S</span></code> is an arbitrary RST line of text, defines the
+caption of the resulting image(s).</p></li>
+</ul>
+<p>See the examples section.</p>
+</section>
 <section id="conf-py">
 <h2><code class="docutils literal notranslate"><span class="pre">conf.py</span></code><a class="headerlink" href="#conf-py" title="Link to this heading">#</a></h2>
-<p>To configure this extension in a Sphinx documentation, update the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<section id="sphinx-uml-specific-options">
+<h3><code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> specific options<a class="headerlink" href="#sphinx-uml-specific-options" title="Link to this heading">#</a></h3>
+<p>To configure this extension in a Sphinx documentation, update the <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>:</p>
+<p><em>Example:</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx-uml switches</span>
+<span class="n">uml_colorized</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># colour the graphs</span>
+<span class="n">uml_all_ancestors</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># give more Sphinx context</span>
+<span class="n">uml_all_associated</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>The table below list the supported parameters:</p>
 <table border=1 cellpadding=5>
 <tr>
      <th>Sphinx option</th>
@@ -480,9 +526,37 @@
 </ul>
 </section>
 <section id="environment">
-<h2>Environment<a class="headerlink" href="#environment" title="Link to this heading">#</a></h2>
+<h3>Environment<a class="headerlink" href="#environment" title="Link to this heading">#</a></h3>
 <p>By default, the directive provided by this package is named <code class="docutils literal notranslate"><span class="pre">uml</span></code>. Optionally, you can
 rename it by defining its name through the <code class="docutils literal notranslate"><span class="pre">SPHINX_UML_DIRECTIVE</span></code> environment variable.</p>
+</section>
+</section>
+<section id="sphinx-uml-inherited-options">
+<h2><code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> inherited options<a class="headerlink" href="#sphinx-uml-inherited-options" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> uses relies on some display options provided by:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">graphviz.ext.graphviz</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">graphviz.ext.inheritance_diagram</span></code></p></li>
+</ul>
+<p><em>Example:</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Options related to sphinx.ext.graphviz.</span>
+<span class="c1"># Thus, it also impacts sphinx.ext.inheritance_diagram and sphinx_uml.</span>
+<span class="n">graphviz_output_format</span> <span class="o">=</span> <span class="s2">&quot;svg&quot;</span>
+
+<span class="c1"># Options related to sphinx.ext.inheritance_diagram</span>
+<span class="n">bgcolor</span> <span class="o">=</span> <span class="s2">&quot;transparent&quot;</span>
+<span class="n">fgcolor</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span>  <span class="c1"># Note that night mode will change this to white</span>
+<span class="n">inheritance_graph_attrs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;rankdir&quot;</span><span class="p">:</span> <span class="s2">&quot;BT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fontcolor&quot;</span><span class="p">:</span> <span class="n">fgcolor</span><span class="p">,</span>
+    <span class="s2">&quot;bgcolor&quot;</span><span class="p">:</span> <span class="n">bgcolor</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">inheritance_node_attrs</span> <span class="o">=</span> <span class="n">inheritance_edge_attrs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="n">fgcolor</span><span class="p">,</span>
+    <span class="s2">&quot;fontcolor&quot;</span><span class="p">:</span> <span class="n">fgcolor</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -497,20 +571,20 @@ rename it by defining its name through the <code class="docutils literal notrans
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="automatic_documentation.html"
+       href="usage_rst.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Automatic documentation</p>
+        <p class="prev-next-title">Usage in a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file</p>
       </div>
     </a>
     <a class="right-next"
-       href="troubleshouting.html"
+       href="examples.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Troubleshooting</p>
+        <p class="prev-next-title">Examples</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -533,8 +607,13 @@ rename it by defining its name through the <code class="docutils literal notrans
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conf-py"><code class="docutils literal notranslate"><span class="pre">conf.py</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment">Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-parameters">Optional parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conf-py"><code class="docutils literal notranslate"><span class="pre">conf.py</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx-uml-specific-options"><code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> specific options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment">Environment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx-uml-inherited-options"><code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> inherited options</a></li>
 </ul>
   </nav></div>
 

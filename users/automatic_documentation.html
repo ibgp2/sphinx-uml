@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Automatic documentation &#8212; sphinx-uml 0.3.1 documentation</title>
+    <title>Using sphinx-uml in auto-generated documentation &#8212; sphinx-uml 0.3.1 documentation</title>
   
   
   
@@ -48,7 +48,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'users/automatic_documentation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Configuration" href="configuration.html" />
+    <link rel="next" title="Troubleshooting" href="troubleshouting.html" />
     <link rel="prev" title="Examples" href="examples.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -143,6 +143,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developers.html">
+    Documentation (sphinx)
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../api/index.html">
     API
   </a>
@@ -155,13 +162,23 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../history.html">
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../history.html">
     History
   </a>
 </li>
 
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -278,6 +295,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developers.html">
+    Documentation (sphinx)
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../api/index.html">
     API
   </a>
@@ -353,10 +377,11 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage_rst.html">Usage in a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Automatic documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Using <code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> in auto-generated documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshouting.html">Troubleshooting</a></li>
 </ul>
 </div>
@@ -401,7 +426,7 @@
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">Users</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Automatic documentation</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Using <code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> in auto-generated documentation</span></li>
   </ul>
 </nav>
 </div>
@@ -418,11 +443,46 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="automatic-documentation">
-<h1>Automatic documentation<a class="headerlink" href="#automatic-documentation" title="Link to this heading">#</a></h1>
+  <section id="using-sphinx-uml-in-auto-generated-documentation">
+<h1>Using <code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> in auto-generated documentation<a class="headerlink" href="#using-sphinx-uml-in-auto-generated-documentation" title="Link to this heading">#</a></h1>
 <p>Using Sphinx templates, one can call the <code class="docutils literal notranslate"><span class="pre">uml</span></code> directive in the auto-generated
-documentation pages. See the Jinja templates provided in <code class="docutils literal notranslate"><span class="pre">example/docs/_templates</span></code> as
-an example.</p>
+documentation pages.</p>
+<section id="extensions-docs-conf-py">
+<h2>Extensions (<code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>)<a class="headerlink" href="#extensions-docs-conf-py" title="Link to this heading">#</a></h2>
+<p>Enable the following extensions:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;sphinx.ext.autodoc&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx.ext.autosummary&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx.ext.napoleon&quot;</span><span class="p">,</span>
+     <span class="c1"># ...</span>
+    <span class="s2">&quot;sphinx.ext.graphviz&quot;</span><span class="p">,</span>  <span class="c1"># https://stackoverflow.com/a/59319659/14851404</span>
+    <span class="s2">&quot;sphinx_uml&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="templates">
+<h2>Templates<a class="headerlink" href="#templates" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.sphinx-doc.org/en/master/development/html_themes/templating.html">Sphinx templates</a>
+are used to customize how Sphinx generate package and module pages. Otherwise, Sphinx use its
+own default templates.</p>
+<p>Custom templates are usually stored in <code class="docutils literal notranslate"><span class="pre">docs/_templates</span></code>.
+They are typically based on <code class="docutils literal notranslate"><span class="pre">sphinx/templates/apidoc/*jinja</span></code> files.
+See <code class="docutils literal notranslate"><span class="pre">example/docs/_templates</span></code> as an example.</p>
+</section>
+<section id="building-the-documentation">
+<h2>Building the documentation<a class="headerlink" href="#building-the-documentation" title="Link to this heading">#</a></h2>
+<p>To be taken into account,  the <code class="docutils literal notranslate"><span class="pre">--templatedir</span></code> option is needed when building the
+documentation. See <code class="docutils literal notranslate"><span class="pre">example/Makefile</span></code>:</p>
+<p><em>Example:</em></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>run<span class="w"> </span>sphinx-apidoc<span class="w"> </span>-f<span class="w"> </span>-o<span class="w"> </span>docs/<span class="w"> </span>src/<span class="w"> </span>--separate<span class="w"> </span>--templatedir<span class="o">=</span>docs/_templates
+poetry<span class="w"> </span>run<span class="w"> </span>sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>docs/<span class="w"> </span>docs/_build/html
+</pre></div>
+</div>
+<p>See <span class="raw-html-md"><a href="https://github.com/ibgp2/sphinx-uml/tree/main/example/docs/_templates"><code class="docutils literal"><span class="pre">example/docs/_templates</span></code></a></span>
+and <span class="raw-html-md"><a href="https://github.com/ibgp2/sphinx-uml/tree/main/example/docs/_templates"><code class="docutils literal"><span class="pre">example/Makefile</span></code></a></span>
+as an example.</p>
+</section>
 </section>
 
 
@@ -445,11 +505,11 @@ an example.</p>
       </div>
     </a>
     <a class="right-next"
-       href="configuration.html"
+       href="troubleshouting.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Configuration</p>
+        <p class="prev-next-title">Troubleshooting</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -463,6 +523,20 @@ an example.</p>
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extensions-docs-conf-py">Extensions (<code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#templates">Templates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-documentation">Building the documentation</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">

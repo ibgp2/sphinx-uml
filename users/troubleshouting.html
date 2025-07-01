@@ -48,8 +48,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'users/troubleshouting';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="API" href="../api/index.html" />
-    <link rel="prev" title="Configuration" href="configuration.html" />
+    <link rel="next" title="Documentation (sphinx)" href="../developers.html" />
+    <link rel="prev" title="Using sphinx-uml in auto-generated documentation" href="automatic_documentation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.3.1" />
@@ -143,6 +143,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developers.html">
+    Documentation (sphinx)
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../api/index.html">
     API
   </a>
@@ -155,13 +162,23 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../history.html">
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../history.html">
     History
   </a>
 </li>
 
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -278,6 +295,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developers.html">
+    Documentation (sphinx)
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../api/index.html">
     API
   </a>
@@ -353,10 +377,11 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage_rst.html">Usage in a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="automatic_documentation.html">Automatic documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="automatic_documentation.html">Using <code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> in auto-generated documentation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Troubleshooting</a></li>
 </ul>
 </div>
@@ -420,7 +445,8 @@
                   
   <section id="troubleshooting">
 <h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> uses <code class="docutils literal notranslate"><span class="pre">sphinx-docs</span></code>’ logging API to write information to the log files.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> uses the <a class="reference external" href="https://www.sphinx-doc.org/en/master/extdev/logging.html">Sphinx logging API</a>
+to write information to the log files.</p>
 <p>To use it run your <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> command with <code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">-v</span> <span class="pre">-v</span> <span class="pre">-w</span> <span class="pre">$(pwd)/sphinx.log</span></code>.</p>
 <p>For more information, see:</p>
 <ul class="simple">
@@ -440,20 +466,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="configuration.html"
+       href="automatic_documentation.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Configuration</p>
+        <p class="prev-next-title">Using <code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> in auto-generated documentation</p>
       </div>
     </a>
     <a class="right-next"
-       href="../api/index.html"
+       href="../developers.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">API</p>
+        <p class="prev-next-title">Documentation (<code class="docutils literal notranslate"><span class="pre">sphinx</span></code>)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

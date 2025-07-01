@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Documentation &#8212; sphinx-uml 0.3.1 documentation</title>
+    <title>sphinx-uml &#8212; sphinx-uml 0.3.1 documentation</title>
   
   
   
@@ -142,6 +142,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="developers.html">
+    Documentation (sphinx)
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="api/index.html">
     API
   </a>
@@ -154,13 +161,23 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="history.html">
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="history.html">
     History
   </a>
 </li>
 
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -279,6 +296,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="developers.html">
+    Documentation (sphinx)
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="api/index.html">
     API
   </a>
@@ -376,11 +400,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="documentation">
-<h1>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h1>
-</section>
-<section id="sphinx-uml">
-<h1>Sphinx-uml<a class="headerlink" href="#sphinx-uml" title="Link to this heading">#</a></h1>
+  <section id="sphinx-uml">
+<h1><code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code><a class="headerlink" href="#sphinx-uml" title="Link to this heading">#</a></h1>
 <a class="reference external image-reference" href="https://pypi.python.org/pypi/sphinx-uml/"><img alt="PyPI" src="https://img.shields.io/pypi/v/sphinx-uml.svg" />
 </a>
 <a class="reference external image-reference" href="https://github.com/ibgp2/sphinx-uml/actions/workflows/build.yml"><img alt="Build" src="https://github.com/ibgp2/sphinx-uml/workflows/build/badge.svg" />
@@ -389,16 +410,30 @@
 </a>
 <a class="reference external image-reference" href="https://sphinx-uml.readthedocs.io/en/"><img alt="ReadTheDocs" src="https://readthedocs.org/projects/sphinx-uml/badge/?version=latest" />
 </a>
-<p><code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> is a Sphinx extension that generates <a class="reference external" href="https://en.wikipedia.org/wiki/Unified_Modeling_Language">UML diagrams</a> from python
-modules, just like <span class="raw-html-md"><a href="https://github.com/sphinx-pyreverse/sphinx-pyreverse/"><code class="docutils literal"><span class="pre">sphinx-pyreverse</span></code></a></span>.</p>
-<p>Compared to <span class="raw-html-md"><a href="https://github.com/sphinx-pyreverse/sphinx-pyreverse/"><code class="docutils literal"><span class="pre">sphinx-pyreverse</span></code></a></span>,
-<code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> outputs enriched <a class="reference external" href="https://graphviz.org/doc/info/lang.html">dot</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/SVG">SVG</a> UML diagrams.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> is a python package that provides:</p>
 <ul class="simple">
-<li><p>responsive to light/black Sphinx themes (as <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">pydata</a>);</p></li>
-<li><p>if the HTML address is known, the class/attribute/method names can be clicked to browse the corresponding documentation page;</p></li>
+<li><p>A Sphinx extension, called using <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">uml</span></code>, which generates
+<a class="reference external" href="https://en.wikipedia.org/wiki/Unified_Modeling_Language">UML diagrams</a>
+from python modules, just like
+<span class="raw-html-md"><a href="https://github.com/sphinx-pyreverse/sphinx-pyreverse/"><code class="docutils literal"><span class="pre">sphinx-pyreverse</span></code></a></span>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">pyreverse2</span></code> command, that extends <code class="docutils literal notranslate"><span class="pre">pyreverse</span></code> provided by <code class="docutils literal notranslate"><span class="pre">pylint</span></code>.</p></li>
 </ul>
-<section id="sphinx">
-<h2>Sphinx<a class="headerlink" href="#sphinx" title="Link to this heading">#</a></h2>
+<p>Compared to <span class="raw-html-md"><a href="https://github.com/sphinx-pyreverse/sphinx-pyreverse/"><code class="docutils literal"><span class="pre">sphinx-pyreverse</span></code></a></span>,
+<code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> outputs enriched <a class="reference external" href="https://graphviz.org/doc/info/lang.html">dot</a> or
+<a class="reference external" href="https://en.wikipedia.org/wiki/SVG">SVG</a> UML diagrams.</p>
+<ul class="simple">
+<li><p>responsive to light/black Sphinx themes (as
+<a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">pydata</a>);</p></li>
+<li><p>if the HTML address is known, the class/attribute/method names can be clicked
+to browse the corresponding documentation page.</p></li>
+</ul>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading">#</a></h2>
+<section id="uml-directive">
+<h3><code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">uml</span></code> directive<a class="headerlink" href="#uml-directive" title="Link to this heading">#</a></h3>
 <p>UML diagrams can be obtained by using the <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">uml</span></code> directive.</p>
 <p><em>Example:</em></p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">uml</span><span class="p">::</span> example.module.b1
@@ -413,7 +448,7 @@ shows how to use the <code class="docutils literal notranslate"><span class="pre
 <span class="raw-html-md"><a href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html"><code class="docutils literal"><span class="pre">sphinx.ext.autosummary</span></code></a></span>.</p>
 </section>
 <section id="pyreverse2">
-<h2>pyreverse2<a class="headerlink" href="#pyreverse2" title="Link to this heading">#</a></h2>
+<h3><code class="docutils literal notranslate"><span class="pre">pyreverse2</span></code><a class="headerlink" href="#pyreverse2" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">pyreverse2</span></code> behaves like the original <code class="docutils literal notranslate"><span class="pre">pyreverse</span></code> command with two main differences:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">--ouput</span></code>: <code class="docutils literal notranslate"><span class="pre">svg</span></code> and <code class="docutils literal notranslate"><span class="pre">dot</span></code> are the only supported output formats;</p></li>
@@ -428,7 +463,7 @@ shows how to use the <code class="docutils literal notranslate"><span class="pre
 <span class="k">for</span><span class="w"> </span>x<span class="w"> </span><span class="k">in</span><span class="w"> </span>example<span class="w"> </span>example.module<span class="w"> </span>example.module.submodule<span class="w"> </span>example.module.submodule.c1
 <span class="k">do</span>
 <span class="w">   </span>pyreverse2<span class="w"> </span><span class="se">\</span>
-<span class="w">      </span>--sphinx-html-dir<span class="w"> </span><span class="nv">$HOME</span>/git/sphinx-pyreverse/example/docs/_build/html/<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>--sphinx-html-dir<span class="w"> </span><span class="nv">$HOME</span>/git/sphinx-uml/example/docs/_build/html/<span class="w"> </span><span class="se">\</span>
 <span class="w">      </span>--output<span class="w"> </span>svg<span class="w"> </span><span class="se">\</span>
 <span class="w">      </span>--project<span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="se">\</span>
 <span class="w">      </span><span class="nv">$x</span>
@@ -436,6 +471,10 @@ shows how to use the <code class="docutils literal notranslate"><span class="pre
 <span class="k">done</span>
 </pre></div>
 </div>
+</section>
+</section>
+<section id="id1">
+<h2><a class="reference external" href="https://sphinx-uml.readthedocs.io/en/">Documentation</a><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
@@ -452,25 +491,61 @@ shows how to use the <code class="docutils literal notranslate"><span class="pre
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="users/index.html">Users</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="users/usage_rst.html">Usage in a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="users/examples.html">Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="users/examples.html#display-parameters">Display parameters</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="users/examples.html#options">Options</a></li>
-<li class="toctree-l4"><a class="reference internal" href="users/examples.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users/terminology.html">Terminology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="users/terminology.html#restructuredtext-rst">reStructuredText (<code class="docutils literal notranslate"><span class="pre">.rst</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="users/terminology.html#sphinx-extension">Sphinx extension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="users/terminology.html#role">Role</a></li>
+<li class="toctree-l3"><a class="reference internal" href="users/terminology.html#sphinx-directive">Sphinx directive</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="users/terminology.html#optional-parameters">Optional parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="users/terminology.html#configuration">Configuration</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="users/usage_rst.html">Usage in a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users/configuration.html">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="users/configuration.html#optional-parameters">Optional parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="users/configuration.html#conf-py"><code class="docutils literal notranslate"><span class="pre">conf.py</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="users/configuration.html#sphinx-uml-specific-options"><code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> specific options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="users/configuration.html#environment">Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="users/configuration.html#sphinx-uml-inherited-options"><code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> inherited options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="users/examples.html">Examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="users/examples.html#classes-diagram">Classes diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="users/examples.html#packages-diagram">Packages diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="users/examples.html#both">Both</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="users/automatic_documentation.html">Automatic documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="users/configuration.html">Configuration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="users/configuration.html#conf-py"><code class="docutils literal notranslate"><span class="pre">conf.py</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="users/configuration.html#environment">Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users/automatic_documentation.html">Using <code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> in auto-generated documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="users/automatic_documentation.html#extensions-docs-conf-py">Extensions (<code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="users/automatic_documentation.html#templates">Templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="users/automatic_documentation.html#building-the-documentation">Building the documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="users/troubleshouting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">Documentation (<code class="docutils literal notranslate"><span class="pre">sphinx</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#with-make">With <code class="docutils literal notranslate"><span class="pre">make</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#without-make">Without <code class="docutils literal notranslate"><span class="pre">make</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html#sphinx-extensions">Sphinx extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#inheritance-diagrams">Inheritance diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#documentation-from-docstring-sphinx-apidoc">Documentation from docstring (<code class="docutils literal notranslate"><span class="pre">sphinx-apidoc</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developers.html#templates">Templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developers.html#custom-templates">Custom templates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#sphinx-and-graphviz">Sphinx and graphviz</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developers.html#image-format">Image format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developers.html#graph-style">Graph style</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api/index.html">API</a><ul class="simple">
@@ -487,6 +562,7 @@ shows how to use the <code class="docutils literal notranslate"><span class="pre
 <li class="toctree-l2"><a class="reference internal" href="history.html#id1">0.2.0 (2025-06-30)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="history.html#id2">0.3.0 (2025-07-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="history.html#id3">0.3.1 (2025-07-01)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id4">0.3.2</a></li>
 </ul>
 </li>
 </ul>
@@ -532,14 +608,14 @@ shows how to use the <code class="docutils literal notranslate"><span class="pre
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Documentation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx-uml">Sphinx-uml</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx">Sphinx</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyreverse2">pyreverse2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uml-directive"><code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">uml</span></code> directive</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyreverse2"><code class="docutils literal notranslate"><span class="pre">pyreverse2</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Documentation</a></li>
 </ul>
-
   </nav></div>
 
   <div class="sidebar-secondary-item">

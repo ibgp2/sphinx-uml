@@ -48,7 +48,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'users/index';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Usage in a .rst file" href="usage_rst.html" />
+    <link rel="next" title="Terminology" href="terminology.html" />
     <link rel="prev" title="Installation" href="../installation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -143,6 +143,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developers.html">
+    Documentation (sphinx)
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../api/index.html">
     API
   </a>
@@ -155,13 +162,23 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../history.html">
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../history.html">
     History
   </a>
 </li>
 
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -278,6 +295,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developers.html">
+    Documentation (sphinx)
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../api/index.html">
     API
   </a>
@@ -353,10 +377,11 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage_rst.html">Usage in a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="automatic_documentation.html">Automatic documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="automatic_documentation.html">Using <code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> in auto-generated documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshouting.html">Troubleshooting</a></li>
 </ul>
 </div>
@@ -419,22 +444,38 @@
 <h1>Users<a class="headerlink" href="#users" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="usage_rst.html">Usage in a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#display-parameters">Display parameters</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="examples.html#options">Options</a></li>
-<li class="toctree-l3"><a class="reference internal" href="examples.html#configuration">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="terminology.html#restructuredtext-rst">reStructuredText (<code class="docutils literal notranslate"><span class="pre">.rst</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terminology.html#sphinx-extension">Sphinx extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terminology.html#role">Role</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terminology.html#sphinx-directive">Sphinx directive</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="terminology.html#optional-parameters">Optional parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terminology.html#configuration">Configuration</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage_rst.html">Usage in a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#optional-parameters">Optional parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#conf-py"><code class="docutils literal notranslate"><span class="pre">conf.py</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configuration.html#sphinx-uml-specific-options"><code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> specific options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration.html#environment">Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#sphinx-uml-inherited-options"><code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> inherited options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="examples.html#classes-diagram">Classes diagram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples.html#packages-diagram">Packages diagram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples.html#both">Both</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="automatic_documentation.html">Automatic documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#conf-py"><code class="docutils literal notranslate"><span class="pre">conf.py</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#environment">Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="automatic_documentation.html">Using <code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> in auto-generated documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="automatic_documentation.html#extensions-docs-conf-py">Extensions (<code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="automatic_documentation.html#templates">Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="automatic_documentation.html#building-the-documentation">Building the documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshouting.html">Troubleshooting</a></li>
@@ -462,11 +503,11 @@
       </div>
     </a>
     <a class="right-next"
-       href="usage_rst.html"
+       href="terminology.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Usage in a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file</p>
+        <p class="prev-next-title">Terminology</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

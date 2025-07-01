@@ -48,8 +48,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'users/usage_rst';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Examples" href="examples.html" />
-    <link rel="prev" title="Users" href="index.html" />
+    <link rel="next" title="Configuration" href="configuration.html" />
+    <link rel="prev" title="Terminology" href="terminology.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.3.1" />
@@ -143,6 +143,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developers.html">
+    Documentation (sphinx)
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../api/index.html">
     API
   </a>
@@ -155,13 +162,23 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../history.html">
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../history.html">
     History
   </a>
 </li>
 
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -278,6 +295,13 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developers.html">
+    Documentation (sphinx)
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../api/index.html">
     API
   </a>
@@ -353,10 +377,11 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Usage in a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="automatic_documentation.html">Automatic documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="automatic_documentation.html">Using <code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> in auto-generated documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshouting.html">Troubleshooting</a></li>
 </ul>
 </div>
@@ -422,11 +447,18 @@
 <h1>Usage in a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file<a class="headerlink" href="#usage-in-a-rst-file" title="Link to this heading">#</a></h1>
 <p>Add <code class="docutils literal notranslate"><span class="pre">&quot;sphinx_uml&quot;</span></code> to the extensions list in your <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> (make sure it is
 in the <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code>).</p>
-<p>Call the <code class="docutils literal notranslate"><span class="pre">uml</span></code> directive with path to python module as content.
-The <code class="docutils literal notranslate"><span class="pre">:classes:</span></code> and <code class="docutils literal notranslate"><span class="pre">:packages:</span></code> flags specify which UML diagrams to show.</p>
+<p>Call the <code class="docutils literal notranslate"><span class="pre">uml</span></code> directive with path to python module as content that supports
+the following optional parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">:classes:</span></code> indicates whether the class diagram must be displayed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:packages:</span></code> indicates whether the package diagram must be displayed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:caption:</span></code> takes an arbitrary text in parameter which is used to label
+the displayed diagram(s).</p></li>
+</ul>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">uml</span><span class="p">::</span> {{modulename}}
     <span class="nc">:classes:</span>
     <span class="nc">:packages:</span>
+    <span class="nc">:caption:</span> Diagram of {{modulename}}
 </pre></div>
 </div>
 </section>
@@ -442,20 +474,20 @@ The <code class="docutils literal notranslate"><span class="pre">:classes:</span
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="terminology.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Users</p>
+        <p class="prev-next-title">Terminology</p>
       </div>
     </a>
     <a class="right-next"
-       href="examples.html"
+       href="configuration.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Examples</p>
+        <p class="prev-next-title">Configuration</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

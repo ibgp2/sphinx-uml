@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>API &#8212; sphinx-uml 0.3.1 documentation</title>
+    <title>Terminology &#8212; sphinx-uml 0.3.1 documentation</title>
   
   
   
@@ -45,11 +45,11 @@
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=30646c52"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'users/terminology';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Authors" href="../authors.html" />
-    <link rel="prev" title="Documentation (sphinx)" href="../developers.html" />
+    <link rel="next" title="Usage in a .rst file" href="usage_rst.html" />
+    <link rel="prev" title="Users" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.3.1" />
@@ -135,8 +135,8 @@
 </li>
 
 
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../users/index.html">
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
     Users
   </a>
 </li>
@@ -149,8 +149,8 @@
 </li>
 
 
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
     API
   </a>
 </li>
@@ -287,8 +287,8 @@
 </li>
 
 
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../users/index.html">
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
     Users
   </a>
 </li>
@@ -301,8 +301,8 @@
 </li>
 
 
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
     API
   </a>
 </li>
@@ -376,7 +376,15 @@
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"></div>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_rst.html">Usage in a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="automatic_documentation.html">Using <code class="docutils literal notranslate"><span class="pre">sphinx-uml</span></code> in auto-generated documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshouting.html">Troubleshooting</a></li>
+</ul>
+</div>
 </nav></div>
     </div>
   
@@ -415,7 +423,10 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">API</span></li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Users</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Terminology</span></li>
   </ul>
 </nav>
 </div>
@@ -432,10 +443,53 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="api">
-<h1>API<a class="headerlink" href="#api" title="Link to this heading">#</a></h1>
-<div class="toctree-wrapper compound">
+  <section id="terminology">
+<h1>Terminology<a class="headerlink" href="#terminology" title="Link to this heading">#</a></h1>
+<section id="restructuredtext-rst">
+<h2>reStructuredText (<code class="docutils literal notranslate"><span class="pre">.rst</span></code>)<a class="headerlink" href="#restructuredtext-rst" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">reStructuredText</a>
+is the default plaintext markup language used by Sphinx.</p>
+</section>
+<section id="sphinx-extension">
+<h2>Sphinx extension<a class="headerlink" href="#sphinx-extension" title="Link to this heading">#</a></h2>
+<p>A <strong>Sphinx extension</strong> is a Python package that provides <a class="reference external" href="https://www.sphinx-doc.org/en/master/development/tutorials/extending_syntax.html#">roles and
+directives</a>.
+They are use to intepret part of <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file.</p>
+</section>
+<section id="role">
+<h2>Role<a class="headerlink" href="#role" title="Link to this heading">#</a></h2>
+<p>A <em>role</em> is invoked when processing a command inline.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Some text with a <span class="na">:hello:</span><span class="nv">`world`</span> role.
+</pre></div>
 </div>
+</section>
+<section id="sphinx-directive">
+<h2>Sphinx directive<a class="headerlink" href="#sphinx-directive" title="Link to this heading">#</a></h2>
+<p>A <em>directive</em> is invoked when processing a paragraph involved in a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">hello</span><span class="p">::</span> world
+</pre></div>
+</div>
+<section id="optional-parameters">
+<h3>Optional parameters<a class="headerlink" href="#optional-parameters" title="Link to this heading">#</a></h3>
+<p>A directive may support optional parameters depending on its specifications:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">hello</span><span class="p">::</span> world
+    <span class="nc">:param1:</span>
+    <span class="nc">:param2:</span>
+    <span class="nc">:param3:</span> some value
+
+     some content
+</pre></div>
+</div>
+<p>The specifications are class attributes of the class implementing
+the Sphinx directive. See
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/development/tutorials/extending_syntax.html">this tutorial</a>.</p>
+</section>
+<section id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h3>
+<p>A directive may be configured from the <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code> Sphinx configuration file
+(see the configuration section).</p>
+</section>
+</section>
 </section>
 
 
@@ -449,20 +503,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../developers.html"
+       href="index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Documentation (<code class="docutils literal notranslate"><span class="pre">sphinx</span></code>)</p>
+        <p class="prev-next-title">Users</p>
       </div>
     </a>
     <a class="right-next"
-       href="../authors.html"
+       href="usage_rst.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Authors</p>
+        <p class="prev-next-title">Usage in a <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -478,10 +532,29 @@
 
 
   <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restructuredtext-rst">reStructuredText (<code class="docutils literal notranslate"><span class="pre">.rst</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx-extension">Sphinx extension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#role">Role</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx-directive">Sphinx directive</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-parameters">Optional parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/api/index.rst.txt"
+      <li><a href="../_sources/users/terminology.md.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div></div>

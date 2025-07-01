@@ -34,20 +34,37 @@ sudo pip3 install sphinx_mdinclude --break-system-packages
 
 There are several ways to install the package:
 
-* _In a [virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/):_ this is the recommended approach.
+* _System-wide:_ A modern ``pip3`` version prevents to install packages
+system-wide. You must either use a virtual environment, or either pass the
+`--break-system-packages` options:
+
+```
+sudo pip install sphinx_uml --break-system-packages
+```
+
+* _User-wide:_ As a normal user run:
+
+```
+pip install sphinx_uml --break-system-packages
+```
+
+* In a `poetry` environment: the package is available from program run using `poetry run ...`.
+
+```bash
+poetry run pip install
+pip install sphinx-uml
+```
+
+* In a
+[virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/):
+the package is available only if this virtual environment is enabled.
 
 ```bash
 python3 -m venv env      # Create your virtual environment
 source env/bin/activate  # Activate the "env" virtual environment
 which python             # Check you use the venv python interpret (i.e., not /usr/bin/python3)
-pip install sphinx_uml --force-reinstall
+pip install sphinx-uml
 deactivate               # Leave the  "env" virtual environment
-```
-
-* _System-wide:_ A modern ``pip3`` version prevents to install packages system-wide. You must either use a virtual environment, or either pass the `--break-system-packages` options:
-
-```
-sudo pip3 install sphinx_uml --break-system-packages
 ```
 
 ### From git
@@ -55,35 +72,20 @@ sudo pip3 install sphinx_uml --break-system-packages
 * Clone the repository and install the package:
 
 ```bash
-git clone https://github.com/ibgp2/sphinx_uml.git
+git clone https://github.com/ibgp2/sphinx-uml.git
 cd sphinx_uml 
 ```
 
-* Install the missing dependencies and build the wheel of the project:
+* Install the missing dependencies and build the wheel of the project in a `poetry` environment:
 ```
-poetry install  # Install the core dependencies. Pass --with docs,test,dev to get the whole set of dependencies.
+poetry install  # Install the core dependencies. Pass --with docs,test,dev to install additional dependencies.
 poetry build    # Build the wheel (see dist/*whl)
 ```
 
-* Install the wheel you just built, according to one of the following methods, that affects the installation scope:
-  * _In the `poetry` environment:_ this imposes to run your python-related commands through `poetry run`.
+* The resulting `dist/sphinx_uml*whl` file can be installed using `pip` (see the previous section).
+
+_Example:_ 
 
 ```bash
-poetry run pip3 install dist/*whl
-```
-
-  * In a [virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/): this imposes to run your python-related in the venv.
-
-```bash
-python3 -m venv env      # Create your virtual environment
-source env/bin/activate  # Activate the "env" virtual environment
-which python             # Should be your "env" python interpreter (not /usr/bin/python3)
-pip install dist/*whl    # Install your wheel
-deactivate               # Leave the  "env" virtual environment
-```
-
-  * System-wide (Linux):
-
-```bash
-sudo pip3 install dist/*whl --break-system-packages --force-reinstall
+pip3 install dist/sphinx_uml*whl --break-system-packages 
 ```
