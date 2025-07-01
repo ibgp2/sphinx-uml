@@ -47,7 +47,7 @@ install-sphinx-standard:
 	poetry install --with docs
 
 install-sphinx-custom:
-	cd .. && python3 -m build && cp dist/sphinx_uml*whl example/dist && cd -
+	cd .. && rm -f dist/sphinx_uml*whl && python3 -m build && cp dist/sphinx_uml*whl example/dist && cd -
 	poetry run pip install dist/sphinx_uml*whl --force-reinstall --no-deps
 
 install-doc: install-sphinx-standard install-sphinx-custom
