@@ -163,11 +163,13 @@ class UMLGenerateDirective(SphinxDirective):
             args.append("--colorized")
         return args
 
-    def html_root_dir(self) -> str:
+    def html_root_dir(self) -> Path:
         """
+        Crafts the HTML prefix to move from the current HTML
+        to the HTML root directory.
+
         Returns:
-            The HTML prefix to move from the current HTML document
-            to the HTML root directory.
+            The corresponding relative :py:class:`Path` instance.
 
         Example:
             Assume that:
@@ -187,10 +189,9 @@ class UMLGenerateDirective(SphinxDirective):
         cur_path = Path(doc.current_source)
         rel_path = str(cur_path.relative_to(base_dir).parent)
         if rel_path == ".":
-            return rel_path
+            return Path(rel_path)
         n = len(rel_path.split("/"))
-        ret = "/".join([".."] * n)
-        return ret
+        return Path("/".join([".."] * n))
 
     def run(self):
         """
@@ -221,7 +222,7 @@ class UMLGenerateDirective(SphinxDirective):
         caption = self.options.get("caption")
 
         pyprocess_args = self._build_args() + [
-            "--sphinx-html-dir", self.html_root_dir(),
+            "--sphinx-html-dir", str(self.html_root_dir()),
             module_name
         ]
 
@@ -257,7 +258,9 @@ class UMLGenerateDirective(SphinxDirective):
                 # See the HTMLTranslator.visit_reference function in
                 # /usr/lib/python3/dist-packages/docutils/writers/_html_base.py
                 text="Open in a new tab",
-                refuri="../_images/" + svg_basename,
+                refuri=str(
+                    self.html_root_dir() / "_images" / svg_basename
+                ),
             )
 
             # Add caption

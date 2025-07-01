@@ -43,3 +43,10 @@
   * Added the `guess_svg_basename` function.
 * __Features:__
   * An "Open in a new tab" link is now displayed below each UML diagram. 
+
+## 0.3.1 (2025-07-01)
+
+* __API__:
+  * `UMLGenerateDirective.html_root_dir` now returns a `pathlib.Path` instance.
+*  __Bug fixes:__
+  * Fixed "Open in a new tab" link URL.
