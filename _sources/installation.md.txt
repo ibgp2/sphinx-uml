@@ -39,13 +39,13 @@ system-wide. You must either use a virtual environment, or either pass the
 `--break-system-packages` options:
 
 ```
-sudo pip install sphinx_uml --break-system-packages
+sudo pip install sphinx-uml --break-system-packages
 ```
 
 * _User-wide:_ As a normal user run:
 
 ```
-pip install sphinx_uml --break-system-packages
+pip install sphinx-uml --break-system-packages
 ```
 
 * In a `poetry` environment: the package is available from program run using `poetry run ...`.
