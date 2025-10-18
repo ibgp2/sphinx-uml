@@ -50,6 +50,8 @@ from pylint.config.arguments_provider import _ArgumentsProvider
 
 # Custom imports
 import argparse
+from importlib.metadata import version
+from packaging.version import Version
 from pylint.pyreverse.main import Run as _Run, OPTIONS as _OPTIONS
 from .dot_printer import DotPrinter
 from .sphinx_html_proxy import SphinxHtmlProxy
@@ -151,7 +153,10 @@ class Run:
                 verbose=self.config.verbose,
             )
             linker = Linker(project, tag=True)
-            handler = DiadefsHandler(self.config)
+            if Version(version("pylint")) < Version("4.0.0"):
+                handler = DiadefsHandler(self.config)
+            else:
+                handler = DiadefsHandler(self.config, args=list())
             diadefs = handler.get_diadefs(project, linker)
             return diadefs
 

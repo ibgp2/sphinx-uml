@@ -55,3 +55,8 @@
 
 * __Documentation__
   * Reorganized/fixed the package documentation.
+
+## 0.4.0 (2025-10-18)
+
+* __Bug fixes:__
+  * `sphinx-uml` is now compatible with `pylint >= 4.0.0`
